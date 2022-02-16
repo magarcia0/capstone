@@ -10,7 +10,7 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-
+    if(session)
       <div className='bg-white dark:bg-black'>
       <button
           className="mt-12 px-4 py-2 text-white dark:text-black bg-black dark:bg-white font-semibold rounded-md"
