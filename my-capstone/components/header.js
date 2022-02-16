@@ -14,7 +14,6 @@ export default  function Header() {
   if(status == "unauthenticated")
   return (
     <>
-        <button  className="rounded-md bg-blue-300" onClick={() => signIn("github")}>Sign in with GitHub</button>
       <div>
         <Head>
           <meta charSet="utf-8" />

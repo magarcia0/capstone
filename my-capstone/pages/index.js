@@ -1,27 +1,13 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
-import { useTheme } from 'next-themes';
 
 
 export default function Home() {
-    const { theme, setTheme } = useTheme()
   return (
     <Layout home>
       <Head>
         <title>{siteTitle}</title>
       </Head>
-    if(session)
-      <div className='bg-white dark:bg-black'>
-      <button
-          className="mt-12 px-4 py-2 text-white dark:text-black bg-black dark:bg-white font-semibold rounded-md"
-          onClick={() => {
-            setTheme(theme === 'light' ? 'dark' : 'light')
-          }}
-        >
-        Dark Mode
-        </button>
-      </div>
-
       <div className="relative bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
