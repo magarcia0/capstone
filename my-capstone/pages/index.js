@@ -8,21 +8,20 @@ export default function Home() {
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <div className="relative bg-white overflow-hidden">
+      <div className="relative bg-white dark:bg-slate-900 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+          <div className="relative z-10 pb-8 bg-white dark:bg-slate-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
             <svg
               className="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2"
               fill="currentColor"
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
               aria-hidden="true">
-              <polygon points="50,0 100,0 50,100 0,100" />
             </svg>
 
             <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
               <div className="sm:text-center lg:text-left">
-                <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
+                <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl dark:text-white">
                   <span className="block xl:inline"> This is my Capstone </span>
                   <span className="block text-red-900 xl:inline">
                     Something inspirational!
@@ -48,14 +47,17 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="space-y-14">
-        <br />
-        <div className="flex items-center justify-center">
-        <div className="bg-gray-100 rounded-lg border shadow-lg p-10">
-         <h2 className="mb-8 text-center uppercase text-black underline text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-5xl">
-          Some stuff about the web app:
-        </h2>
-        <ol className="space-y-3 list-decimal list-inside text-center text-lg text-gray-600 md:text-xl">
+
+      <div className="min-h-screen p-10">
+        <div className="space-y-10 md:space-y-0 md:grid ">
+          <div className=" dark:text-white md:flex md:flex-col md:justify-center">
+          </div>
+          <div className="">
+            <div className="w-full h-screen rounded-lg shadow-2xl bg-gray-300 dark:bg-gray-400 ">
+             <h2 className="text-black pt-16 text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
+              Some stuff about the web app:
+            </h2>
+        <ol className="space-y-3 list-decimal list-inside text-center text-lg text-black md:text-xl">
           <li className=" leading-loose font-bold">
             It will be awesome
           </li>
@@ -66,9 +68,11 @@ export default function Home() {
             I will make millions
           </li>
         </ol>
+ 
+            </div>
+          </div>
         </div>
-        </div>
-      </section>
+      </div>
     </Layout>
   );
 }

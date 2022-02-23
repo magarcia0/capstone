@@ -8,7 +8,7 @@ export const siteTitle = 'Capstone';
 
 export default function Layout({ children, home }) {
   return (
-    <div>
+    <div className='dark:bg-slate-900'>
       <Header />
       <Nav />
       <div className="container mx-auto p-4 text-center">

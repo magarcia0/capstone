@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { siteTitle } from "../components/layout";
-import { useSession, signIn, signOut, getSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 export default  function Header() {
   const { data: session, status } = useSession();
@@ -32,8 +32,6 @@ export default  function Header() {
   if (session) {
     return (
       <>
-        Signed in as {session.user.email} <br />
-        <button onClick={() => signOut()}>Sign out</button>
         <div>
           <Head>
             <meta charSet="utf-8" />
