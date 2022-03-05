@@ -22,7 +22,7 @@ export default function Nav() {
       <ul className="flex items-center justify-between p-1 list-none">
         <li>
           <Link href="/">
-            <a className="pl-2 md:pl-8 text-red-900 no-underline  md:text-3xl text-2xl font-bold hover:text-blue-400 ">
+            <a className="pl-2 md:pl-3 text-red-900 no-underline ml:8 md:text-2xl text-xl font-bold hover:text-blue-400 ">
               {siteTitle}
             </a>
           </Link>
@@ -51,17 +51,11 @@ export default function Nav() {
           </li>
 
           <li>
-            <div className="no-underline px-4 py-2 font-bold text-black hover:text-blue-400 ">
-              <Link href="/about">About</Link>
-
-            </div>
-          </li>
-          <li>
             <button className="no-underline px-4 py-2 font-bold text-black hover:text-blue-400 " onClick={() => signOut()}>Sign out</button>
           </li>
           <li>
       <button
-          className="ml-6 px-2 text-white bg-black dark:bg-blue-300 border-black font-semibold rounded-md"
+          className="ml-6 px-2 text-white bg-slate-800 dark:bg-blue-300 border-black font-semibold rounded-md"
           onClick={() => {
             setTheme(theme === 'light' ? 'dark' : 'light')
           }}
@@ -110,7 +104,7 @@ else{
             </li>
           <li>
       <button
-          className="ml-6 px-2 text-white bg-black dark:bg-blue-300 border-black font-semibold rounded-md"
+          className="ml-6 px-2 text-white bg-slate-800 dark:bg-blue-300 border-black font-semibold rounded-md"
           onClick={() => {
             setTheme(theme === 'light' ? 'dark' : 'light')
           }}
