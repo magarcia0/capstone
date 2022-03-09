@@ -1,13 +1,10 @@
 import Head from 'next/head';
 import Layout, { siteTitle } from '../components/layout';
 
-
 export default function Home() {
   return (
     <Layout home>
-      <Head>
         <title>{siteTitle}</title>
-      </Head>
       <div className="relative bg-white dark:bg-slate-900 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 bg-white dark:bg-slate-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">

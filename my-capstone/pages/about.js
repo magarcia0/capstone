@@ -5,10 +5,8 @@ import Link from "next/link";
 export default function About() {
   return (
     <Layout>
-      <Head>
         <title> About - {siteTitle}</title>j
         <br />
-      </Head>
       <div className="min-h-screen p-10">
         <div className="space-y-10 md:space-y-0 md:grid ">
           <div className=" dark:text-white md:flex md:flex-col md:justify-center">

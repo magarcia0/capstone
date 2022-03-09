@@ -8,10 +8,8 @@ import Link from 'next/link';
 export default function Journal() {
   return (
     <Layout>
-      <Head>
         <title> Journal - {siteTitle}</title>
         <br />
-      </Head>
       <div>
         <Form>this is a form</Form>
       </div>
