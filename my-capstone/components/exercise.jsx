@@ -1,12 +1,13 @@
-const Exercise = ({ exercise: { bodyPart, gifUrl, name , id} }) => {
+//const Exercise = ({ exercise: { bodyPart, gifUrl, name , id} }) => {
+const Exercise = ({ exercise: {name, description, img, idDrink} }) => {
     const width = 300;
     const classArgs= "grid grid-cols-3";
     return (
       <>
-              <div key={id} className={classArgs}>
-                      <th>{bodyPart}</th>
+              <div key={idDrink} className={classArgs}>
                       <th>{name}</th>
-                      <td><img width={width} src={gifUrl}></img></td>
+                      <th>{description}</th>
+                      <td><img width={width} src={img}></img></td>
                       <th></th>
               </div>
 

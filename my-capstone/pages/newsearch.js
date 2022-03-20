@@ -7,7 +7,7 @@ import { info } from "autoprefixer";
 
 export async function getStaticProps() {
   const data = await fetchApi(`${baseUrl}`);
-
+console.log(data);
   return {
     props: {
       data,
@@ -31,10 +31,11 @@ export default function newSeach({ data }) {
     const fields = Array.from(currentTarget?.elements);
     const fieldQuery = fields.find(field => field.name === 'query');
     const myvalue = fieldQuery.value || '';
-    const endpoint = 'https://exercisedb.p.rapidapi.com/exercises/?bodypart='+myvalue;
+    const endpoint = `https://pizza-and-desserts.p.rapidapi.com/pizzas/?name=${myvalue}`;
+    //const endpoint = 'https://exercisedb.p.rapidapi.com/exercises/?bodypart='+myvalue;
 
     updatePage({
-      current:endpoint
+      current: endpoint
     });
   }
   return (
@@ -42,7 +43,7 @@ export default function newSeach({ data }) {
       <Layout>
         <title> Search - {siteTitle}</title>
         <br />
-        <form className="search pb-10 pt-12 " onSubmit={searchHandler}>
+        <form className="search pb-10 pt-12 text-black" onSubmit={searchHandler}>
           <input name="query" type="search" className="outline  mr-.5em dark:bg-white"/>
           <button class="rounded-md bg-blue-300 text-md text-white px-1 py-0.25 ml-1"> Search
             </button>
