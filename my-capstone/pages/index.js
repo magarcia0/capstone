@@ -50,7 +50,7 @@ export default function Home() {
           <div className=" dark:text-white md:flex md:flex-col md:justify-center">
           </div>
           <div className="">
-            <div className="w-full h-screen rounded-lg shadow-2xl bg-gray-300 dark:bg-gray-400 ">
+            <div className="w-full h-screen rounded-lg shadow-2xl dark:bg-slate-500 bg-gray-300">
              <h2 className="text-black pt-16 text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
               Some stuff about the web app:
             </h2>

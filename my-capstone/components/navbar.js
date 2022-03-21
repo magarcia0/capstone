@@ -18,11 +18,11 @@ export default function Nav() {
  if(status == "authenticated"){
   return (
     <>
-        <nav className="bg-gray-300 text-black w-screen">
+        <nav className="bg-gray-300 dark:bg-slate-500 text-black w-screen">
       <ul className="flex items-center justify-between p-1 list-none">
         <li>
           <Link href="/">
-            <a className="pl-2 md:pl-3 text-red-900 no-underline ml:8 md:text-2xl text-xl font-bold hover:text-blue-400 ">
+            <a className="pl-2 md:pl-3 dark:text-red-900 text-red-800 no-underline ml:8 md:text-2xl text-xl font-bold hover:text-blue-400 ">
               {siteTitle}
             </a>
           </Link>
@@ -75,7 +75,7 @@ export default function Nav() {
 }
 else{
   return (
-    <nav className="bg-gray-300 dark:bg-gray-400 text-black  w-screen">
+    <nav className="bg-gray-300 dark:bg-slate-500 text-black  w-screen">
       <ul className="flex items-center justify-between p-1 list-none">
         <li>
           <Link href="/">
