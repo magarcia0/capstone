@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function About() {
   return (
     <Layout>
-        <title> About - {siteTitle}</title>j
+        <title> About - {siteTitle}</title>
         <br />
       <div className="min-h-screen p-10">
         <div className="space-y-10 md:space-y-0 md:grid ">
@@ -13,7 +13,7 @@ export default function About() {
           </div>
 
           <div className="">
-            <div className="w-full h-screen rounded-lg shadow-2xl bg-gray-300 dark:bg-gray-400 ">
+            <div className="w-full h-screen rounded-lg shadow-2xl bg-gray-300 dark:bg-slate-500 ">
              <h2 className="text-black text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
               About Us!
             </h2>

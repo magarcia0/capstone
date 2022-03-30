@@ -53,8 +53,9 @@ a {
   box-sizing: border-box;
 }
 
+/* DO I NEED THESE?
 :root {
-  /* Your default theme */
+  /* Your default theme
   --background: white;
   --foreground: black;
 }
@@ -63,6 +64,7 @@ a {
   --background: black;
   --foreground: white;
 }
+*/
 
 .image {
 

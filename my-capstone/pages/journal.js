@@ -1,25 +1,72 @@
-import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
-import Accordion from "../components/accordion"
-import Link from 'next/link';
-//import prisma from '/lib/prisma';
-//import { useSession, signIn, signOut, getSession } from "next-auth/react";
+import Layout, { siteTitle } from "../components/layout";
+import Link from "next/link";
+import { PrismaClient } from "@prisma/client";
+import { useSession, getSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 
-export default function Journal() {
-  return (
-    <>
-    <Layout>
-        <title> Search - {siteTitle}</title>
-        <br />
+const prisma = new PrismaClient();
 
-      <div>
-        <Accordion title="Biceps" content="content for 1" />
-        <Accordion title="Trapezius" content="this is content 2" />
-        <Accordion title="Triceps" content="this is content 3" />
-        <Accordion title="Shoulders" content="this is content 4" />
-      </div>
-    </Layout>
-    </>
-  );
+export const getServerSideProps = async (ctx) => {
+  const session = await getSession(ctx);
+  const id = session.user.id;
+  //console.log(id);
+  const allPosts = await prisma.post.findMany({
+    where: {
+      authorId: id,
+    },
+  });
+  const stringified = JSON.stringify(allPosts);
+  const json_obj = JSON.parse(stringified);
+
+  return {
+    props: {
+      posts: json_obj,
+    },
+  };
+};
+
+export default function Journal({ posts }) {
+  //console.log(posts);
+  const router = useRouter()
+  const { data: status} = useSession();
+
+  const handleClick = e => {
+    e.preventDefault()
+    router.push('/newpost')
+  }
+
+  if (status === "unauthenticated") {
+    return <p>Access Denied</p>;
+  }
+    return (
+      <>
+        <Layout>
+          <title> Journal - {siteTitle}</title>
+          <button onClick={handleClick} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-100 bg-red-700 dark:bg-blue-700 dark:hover:bg-blue-400 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">New Entry</button>
+         <br />
+               <h3 class="text-lg text-center font-bold m-5">Workout Journal</h3>
+              <table class="rounded-t-lg m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto bg-gray-200 text-gray-800">
+                <tr class="border-b-2 border-gray-300">
+                  <th class="px-2 py-3">Title</th>
+                  <th class="px-4 py-3">Workout</th>
+                  <th class="px-4 py-3">Time Spent</th>
+                  <th class="px-4 py-3">Date</th>
+                </tr>
+
+          {posts?.map((p) => (
+            <>
+                <tr class="bg-gray-100 dark:bg-gray-700 dark:border-gray-600 border-b border-gray-200">
+                  <td class="px-4 py-3">{p.title}</td>
+                  <td class="px-4 py-3">{p.workout}</td>
+                  <td class="px-4 py-3">{p.timeSpent}</td>
+                  <td class="px-4 py-3">{p.workoutDate}</td>
+                </tr>
+
+            </>
+          ))}
+              </table>
+        </Layout>
+      </>
+    );
 }

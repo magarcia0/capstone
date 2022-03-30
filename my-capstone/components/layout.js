@@ -11,14 +11,14 @@ export default function Layout({ children, home }) {
     <div className='dark:bg-slate-900'>
       <Header />
       <Nav />
-      <div className="container mx-auto p-4 text-center">
+      <div className="container mx-auto p-4 text-center dark:bg-slate-900">
         {home ? (
           <>{/* This layout is for the home page */}</>
         ) : (
           <>{/* This is a top layout for pages other than home */}</>
         )}
         {/* This is a bottom layout for pages other than home */}
-        <main>{children}</main>
+        <main className='dark:bg-slate-900'>{children}</main>
         {!home && (
           <div className="pt-8 text-left">
             <Link href="/">

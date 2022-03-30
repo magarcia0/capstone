@@ -14,8 +14,11 @@ datasource db {
 model Post {
   id        Int     @id @default(autoincrement())
   title     String
-  content   String?
+  workout   String?
+  timeSpent Int?
+  workoutDate String?
   published Boolean @default(false)
+  createdAt DateTime @default(now())
   author    User?   @relation(fields: [authorId], references: [id])
   authorId  Int?
 }
@@ -26,11 +29,15 @@ model Account {
   provider          String
   providerAccountId String
   refreshToken      String? @map("refresh_token")
-  accessToken       String? @map("access_token")
-  expiresAt         Int?    @map("expires_at")
-  tokenType         String? @map("token_type")
+  accessToken       String? 
+  access_token      String? 
+  expiresAt         Int?    
+  expires_at        Int?    
+  tokenType         String? 
+  token_type        String? 
   scope             String?
-  idToken           String?
+  idToken           String? 
+  id_token          String? 
   sessionState      String? @map("session_state")
   oauthTokenSecret  String? @map("oauth_token_secret")
   oauthToken        String? @map("oauth_token")
