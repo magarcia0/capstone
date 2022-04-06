@@ -86,11 +86,12 @@ export default function Nav() {
 }
 else{
   return (
-    <nav className="bg-gray-400 text-black  w-screen bg-gradient-to-t from-gray-400 via-slate-500 to-gray-400 ">
+    <nav className="bg-slate-700 text-black w-screen">
+
       <ul className="flex items-center justify-between p-1 list-none">
         <li>
           <Link href="/">
-            <a className="pl-2 md:pl-8 text-red-900 no-underline md:text-3xl text-2xl font-bold hover:text-blue-400">
+            <a className="pl-2 md:pl-8 text-white no-underline md:text-3xl text-2xl font-bold hover:text-blue-400">
               {siteTitle}
             </a>
           </Link>
@@ -98,25 +99,25 @@ else{
 
         <ul className="flex items-center justify-between list-none">
             <li>
-              <div className="no-underline px-4 py-2 font-bold text-black hover:text-blue-400">
+              <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400">
                 <Link href="/">Home</Link>
               </div>
             </li>
             <li>
-              <div className="no-underline px-4 py-2 font-bold text-black hover:text-blue-400 ">
+              <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 ">
                 <Link href="/about">About</Link>
               </div>
             </li>
 
           <li>
-            <div className="no-underline px-4 py-2 font-bold text-black hover:text-blue-400 0">
+            <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 0">
               <Link href="/search">Search</Link>
 
             </div>
           </li>
 
             <li>
-              <div className="no-underline px-4 py-2 font-bold text-black hover:text-blue-400 ">
+              <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 ">
                 <Link href="/api/auth/signin">Signin</Link>
               </div>
             </li>

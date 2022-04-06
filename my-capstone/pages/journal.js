@@ -27,7 +27,6 @@ export const getServerSideProps = async (ctx) => {
 };
 
 export default function Journal({ posts }) {
-  //console.log(posts);
   const router = useRouter()
   const { data: status} = useSession();
 
@@ -41,13 +40,14 @@ export default function Journal({ posts }) {
   }
     return (
       <>
+        <div className="container flex h-screen dark:bg-slate-900">
         <Layout>
           <title> Journal - {siteTitle}</title>
           <button onClick={handleClick} className="w-5/6 mx-auto flex justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700 hover:bg-blue-600 md:py-4 md:text-lg xl:text-2xl lg:text-xl md:px-10">New Entry</button>
          <br />
                <h3 class="text-lg text-center font-bold m-5">Workout Journal</h3>
-              <table class="rounded-t-lg m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto bg-gray-200 text-gray-800">
-                <tr class="border-b-2 border-gray-300">
+              <table class="rounded-t-lg m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto">
+                <tr class="border-b-2 bg-slate-700 text-white border-gray-300">
                   <th class="px-2 py-3">Title</th>
                   <th class="px-4 py-3">Workout</th>
                   <th class="px-4 py-3">Hours Spent</th>
@@ -56,7 +56,7 @@ export default function Journal({ posts }) {
 
           {posts?.map((p) => (
             <>
-                <tr class="bg-gray-100 dark:bg-gray-700 dark:border-gray-600 border-b border-gray-200">
+                <tr class="text-white bg-gray-700 border-gray-600 border-b ">
                   <td class="px-4 py-3">{p.title}</td>
                   <td class="px-4 py-3">{p.workout} </td>
                   <td class="px-4 py-3">{p.timeSpent} <span className="font-bold">hr</span> </td>
@@ -67,6 +67,7 @@ export default function Journal({ posts }) {
           ))}
               </table>
         </Layout>
+</div>
       </>
     );
 }

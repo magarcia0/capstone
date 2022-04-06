@@ -21,7 +21,7 @@ export default function Home() {
               <div className="sm:text-center lg:text-left">
                 <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl dark:text-white">
                   <span className="block xl:inline"> This is my Capstone </span>
-                  <span className="block text-red-700 dark:text-red-800 xl:inline">
+                  <span className="block text-red-700 xl:inline">
                     Something inspirational!
                   </span>
                 </h1>

@@ -27,7 +27,7 @@ const Products = (props) => {
               <li key={product.id} className="card">
                 <div class="dark:bg-slate-600 px-4 py-6 mb-4 min-w-fit max-w-xs rounded-lg overflow-hidden shadow-xl">
                   <img
-                    class="w-full rounded-md"
+                    class="w-full opacity-90 rounded-md"
                     src={product.gifUrl}
                     alt="exercise image"
                   />
