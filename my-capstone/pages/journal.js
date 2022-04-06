@@ -43,14 +43,14 @@ export default function Journal({ posts }) {
       <>
         <Layout>
           <title> Journal - {siteTitle}</title>
-          <button onClick={handleClick} className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-100 bg-red-700 dark:bg-blue-700 dark:hover:bg-blue-400 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">New Entry</button>
+          <button onClick={handleClick} className="w-5/6 mx-auto flex justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700 hover:bg-blue-600 md:py-4 md:text-lg xl:text-2xl lg:text-xl md:px-10">New Entry</button>
          <br />
                <h3 class="text-lg text-center font-bold m-5">Workout Journal</h3>
               <table class="rounded-t-lg m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto bg-gray-200 text-gray-800">
                 <tr class="border-b-2 border-gray-300">
                   <th class="px-2 py-3">Title</th>
                   <th class="px-4 py-3">Workout</th>
-                  <th class="px-4 py-3">Time Spent</th>
+                  <th class="px-4 py-3">Hours Spent</th>
                   <th class="px-4 py-3">Date</th>
                 </tr>
 
@@ -58,8 +58,8 @@ export default function Journal({ posts }) {
             <>
                 <tr class="bg-gray-100 dark:bg-gray-700 dark:border-gray-600 border-b border-gray-200">
                   <td class="px-4 py-3">{p.title}</td>
-                  <td class="px-4 py-3">{p.workout}</td>
-                  <td class="px-4 py-3">{p.timeSpent}</td>
+                  <td class="px-4 py-3">{p.workout} </td>
+                  <td class="px-4 py-3">{p.timeSpent} <span className="font-bold">hr</span> </td>
                   <td class="px-4 py-3">{p.workoutDate}</td>
                 </tr>
 

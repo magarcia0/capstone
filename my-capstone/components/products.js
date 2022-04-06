@@ -14,8 +14,8 @@ const Products = (props) => {
         <input
           name="target"
           type="text"
-          placeholder="Search"
-          className="outline outline-1 outline-offset-2 dark:bg-white"
+          placeholder="Search..."
+          className="outline rounded-sm outline-2 pl-1 outline-offset-2 dark:bg-white"
           onKeyUp={(e) => search(e.target.value)}
         />
         <br />
@@ -27,7 +27,7 @@ const Products = (props) => {
               <li key={product.id} className="card">
                 <div class="dark:bg-slate-600 px-4 py-6 mb-4 min-w-fit max-w-xs rounded-lg overflow-hidden shadow-xl">
                   <img
-                    class="w-full"
+                    class="w-full rounded-md"
                     src={product.gifUrl}
                     alt="exercise image"
                   />

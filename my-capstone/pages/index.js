@@ -1,6 +1,8 @@
+import { useSession } from 'next-auth/react';
 import Layout, { siteTitle } from '../components/layout';
 
 export default function Home() {
+  const {status} = useSession();
   return (
     <Layout home>
         <title>{siteTitle}</title>
@@ -23,16 +25,20 @@ export default function Home() {
                     Something inspirational!
                   </span>
                 </h1>
+
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                   <div className="flex justify-center lg:justify-start mt-6 ">
+        { `${status}`=="unauthenticated" &&
                     <a
                       href="/api/auth/signin"
-                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-100 bg-red-700 dark:bg-red-800 dark:hover:bg-indigo-700 hover:bg-indigo-700 md:py-4 md:text-lg md:px-10">
+                      className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-100 bg-red-700 dark:bg-red-800 dark:hover:bg-blue-700 hover:bg-blue-500 md:py-4 md:text-lg md:px-10">
                       Sign In
                     </a>
+
+}
                     <a
                       href="/search"
-                      className="pt-4 ml-7 w-full items-center justify-center px-8 py-3 border border-transparent text-base font-medium bg-red-400 dark:bg-red-500 dark:hover:bg-indigo-700 text-white rounded-md hover:bg-indigo-700 md:text-lg md:px-16">
+                      className="pt-4 ml-7 w-full items-center justify-center px-8 py-3 border border-transparent text-base font-medium bg-red-400 dark:bg-red-500 dark:hover:bg-blue-700 text-white rounded-md hover:bg-blue-500 md:text-lg md:px-16">
                     Search 
                     </a>
                   </div>
@@ -42,18 +48,16 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-
       <div className="min-h-screen p-10">
         <div className="space-y-10 md:space-y-0 md:grid ">
           <div className=" dark:text-white md:flex md:flex-col md:justify-center">
           </div>
           <div className="">
-            <div className="w-full h-screen rounded-lg shadow-2xl dark:bg-slate-500 bg-gray-300">
-             <h2 className="text-black pt-16 text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
+            <div className="w-full dark:bg-gradient-to-t dark:from-red-800 dark:to-slate-800 h-screen rounded-lg shadow-2xl bg-gradient-to-t from-slate-800 to-red-800">
+             <h2 className="text-white pt-16 text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
               Some stuff about the web app:
             </h2>
-        <ol className="space-y-3 list-decimal list-inside text-center text-lg text-black md:text-xl">
+        <ol className="space-y-3 list-decimal list-inside text-center text-lg text-white md:text-xl">
           <li className=" leading-loose font-bold">
             It will be awesome
           </li>

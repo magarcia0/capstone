@@ -8,10 +8,10 @@ export const siteTitle = 'WildCat++';
 
 export default function Layout({ children, home }) {
   return (
-    <div className='dark:bg-slate-900'>
+    <div className="dark:bg-slate-900">
       <Header />
       <Nav />
-      <div className="container mx-auto p-4 text-center dark:bg-slate-900">
+      <div className="container bg-white mx-auto p-4 text-center dark:bg-slate-900">
         {home ? (
           <>{/* This layout is for the home page */}</>
         ) : (
