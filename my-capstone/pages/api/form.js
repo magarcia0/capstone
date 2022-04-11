@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
-import { send } from "process";
 
+const prisma = new PrismaClient();
 
 export default async function handler(req, res) {
 
@@ -9,13 +9,20 @@ export default async function handler(req, res) {
     return;
   }
 
-  const prisma = new PrismaClient();
-  const workoutData = JSON.parse(req.body);
 
-  const savedWorkout = await prisma.post.create({
-    data: workoutData
-  });
-
-  return res.status(200).json(savedWorkout);
-  //await prisma.$disconnect();
-};
+  if (req.method === 'POST') {
+    const { title, workout, timeSpent, workoutDate, authorId} = req.body;
+   // const slug = slugify(title);
+   //     slug: slug,
+    const result = await prisma.post.create({
+      data: {
+        title: title,
+        workout: workout,
+        timeSPent: timeSpent,
+        workoutDate: workoutDate,
+        authorId: authorId,
+      },
+    });
+      res.json(result);
+  }
+}

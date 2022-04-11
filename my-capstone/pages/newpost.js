@@ -1,9 +1,9 @@
 import Layout, { siteTitle } from "../components/layout";
 import { useRouter } from "next/router";
 import { title } from "process";
+import { getSession } from "next-auth/react";
 
 export default function Newpost() {
-
 const router = useRouter();
 
 const routeJournal= e => {
@@ -11,45 +11,27 @@ const routeJournal= e => {
     router.push('/journal')
   }
 
-    const addNewPost = async event => {
-        event.preventDefault()
-    
-        /*const res = await fetch(
-          'https://hooks.zapier.com/hooks/catch/123456/abcde',
-          {
-            body: JSON.stringify({
-              name: event.target.name.value
-            }),
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            method: 'POST'
-          }
-        )*/
-    
-      }
-const postToDatabase = async () => {
-  const response = await fetch('api/form', {
+const postToDatabase = async (e) => {
+  const session = getSession();
+  const authorId = 18;
+  //const authorId = session.user.id;
+  e.preventDefault();
+
+  try{
+  const body = {title, workout, timeSpent, workoutDate, authorId};
+  console.error(body);
+  await fetch('api/form', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body:JSON.stringify({
-      title: title, 
-      workout: workout,
-      timeSPent: timeSpent,
-      workoutDate: workoutDate,
-    },
-    ),
+    body: JSON.stringify(body),
   });
-  if(!response.ok){
-  console.log("error")
-  }
-
-  const data = await response.json();
-   //return await response.json();
-   return data;
+  } catch(error) {
+    //console.error(error);
+  }//catch
 }
+
   return (
     <Layout>
       <title> New Post-{siteTitle}</title>
@@ -62,7 +44,7 @@ const postToDatabase = async () => {
               <h2 className="mb-28 text-white text-2xl md:text-4xl lg:text-6xl font-bold pt-14">
                 New post!
               </h2>
-            <form onSubmit={ ()=>postToDatabase() }>
+            <form onSubmit={postToDatabase}>
               <label htmlFor="title" className="pr-2 text-white text-3xl">Name</label>
               <input
                 className="bg-white mb-5 mt-24"
@@ -101,7 +83,7 @@ const postToDatabase = async () => {
               />
               <br/>
               <div className="grid pt-16 grid-cols-2">
-               <button type="cancel" onClick={ routeJournal } className="m-auto mt-4 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-100 bg-red-800 hover:bg-blue-400 md:py-4 md:text-lg md:px-10">Cancel</button>
+               <button onClick={ routeJournal } className="m-auto mt-4 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-100 bg-red-800 hover:bg-blue-400 md:py-4 md:text-lg md:px-10">Cancel</button>
                <button type="submit" className="m-auto mt-4 flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-100 bg-red-800 hover:bg-blue-400 md:py-4 md:text-lg md:px-10">Save</button>
               </div>
             </form>
