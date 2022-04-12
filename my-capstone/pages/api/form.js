@@ -9,18 +9,15 @@ export default async function handler(req, res) {
     return;
   }
 
-
   if (req.method === 'POST') {
     const { title, workout, timeSpent, workoutDate, authorId} = req.body;
-   // const slug = slugify(title);
-   //     slug: slug,
     const result = await prisma.post.create({
       data: {
         title: title,
         workout: workout,
-        timeSPent: timeSpent,
+        timeSpent: Number(timeSpent),
         workoutDate: workoutDate,
-        authorId: authorId,
+        authorId: Number(authorId),
       },
     });
       res.json(result);

@@ -1,10 +1,26 @@
 import Layout, { siteTitle } from "../components/layout";
 import { useRouter } from "next/router";
-import { title } from "process";
 import { getSession } from "next-auth/react";
+import { useState } from "react";
 
-export default function Newpost() {
+export const getServerSideProps = async (ctx) => {
+
+  const session = await getSession(ctx);
+  const id = session.user.id;
+
+  return {
+    props: {
+     id: id,
+    },
+  };
+};
+
+export default function Newpost({id}) {
 const router = useRouter();
+const [title, setTitle] = useState('');
+const [workout, setWorkout] = useState('');
+const [timeSpent, setTimespent] = useState('');
+const [workoutDate, setWorkoutDate] = useState('');
 
 const routeJournal= e => {
     e.preventDefault()
@@ -12,23 +28,24 @@ const routeJournal= e => {
   }
 
 const postToDatabase = async (e) => {
-  const session = getSession();
-  const authorId = 18;
-  //const authorId = session.user.id;
-  e.preventDefault();
+  e.preventDefault()
 
-  try{
+  const authorId = id;
+  try {
   const body = {title, workout, timeSpent, workoutDate, authorId};
   console.error(body);
-  await fetch('api/form', {
+  await fetch('/api/form', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(body),
   });
-  } catch(error) {
-    //console.error(error);
+  router.push('/journal')
+  } 
+
+  catch(error) {
+    console.error(error);
   }//catch
 }
 
@@ -51,6 +68,7 @@ const postToDatabase = async (e) => {
                 id="title"
                 name="title"
                 type="text"
+                onChange={(e) => setTitle(e.target.value)}
                 required
               />
               <br/>
@@ -61,6 +79,7 @@ const postToDatabase = async (e) => {
                 id="workout"
                 name="workout"
                 type="text"
+                onChange={(e) => setWorkout(e.target.value)}
                 required
               />
               <br/>
@@ -71,6 +90,7 @@ const postToDatabase = async (e) => {
                 id="timeSpent"
                 name="timeSpent"
                 type="text"
+                onChange={(e) => setTimespent(e.target.value)}
               />
               <br/>
               <br/>
@@ -80,6 +100,7 @@ const postToDatabase = async (e) => {
                 id="workoutDate"
                 name="workoutDate"
                 type="text"
+                onChange={(e) => setWorkoutDate(e.target.value)}
               />
               <br/>
               <div className="grid pt-16 grid-cols-2">

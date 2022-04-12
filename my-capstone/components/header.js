@@ -7,7 +7,6 @@ export default function Header() {
   if (status == "unauthenticated")
     return (
       <>
-        <div>
           <Head>
             <meta charSet="utf-8" />
             <link rel="icon" href="/favicon.ico" />
@@ -18,7 +17,6 @@ export default function Header() {
               content="initial-scale=1.0, width=device-width"
             />
           </Head>
-        </div>
       </>
     );
 

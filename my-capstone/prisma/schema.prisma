@@ -15,7 +15,7 @@ model Post {
   id        Int     @id @default(autoincrement())
   title     String
   workout   String?
-  timeSpent Int?
+  timeSpent Float?
   workoutDate String?
   published Boolean @default(false)
   createdAt DateTime @default(now())
