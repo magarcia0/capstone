@@ -64,7 +64,7 @@ const postToDatabase = async (e) => {
             <form onSubmit={postToDatabase}>
               <label htmlFor="title" className="pr-2 text-white text-3xl">Name</label>
               <input
-                className="bg-white mb-5 mt-24"
+                className="bg-white mb-5 mt-24 dark:bg-slate-800"
                 id="title"
                 name="title"
                 type="text"
@@ -75,7 +75,7 @@ const postToDatabase = async (e) => {
               <br/>
               <label htmlFor="workout" className="pr-2 text-white text-3xl">Workout</label>
               <input
-                className="bg-white mb-5"
+                className="bg-white mb-5 dark:bg-slate-800"
                 id="workout"
                 name="workout"
                 type="text"
@@ -86,7 +86,7 @@ const postToDatabase = async (e) => {
               <br/>
               <label htmlFor="timeSpent" className="pr-2 text-white text-3xl">Time (hr)</label>
               <input
-                className="bg-white mb-5"
+                className="bg-white mb-5 dark:bg-slate-800"
                 id="timeSpent"
                 name="timeSpent"
                 type="text"
@@ -96,7 +96,7 @@ const postToDatabase = async (e) => {
               <br/>
               <label htmlFor="workoutDate" className="pr-2 text-white text-3xl">Date</label>
               <input
-                className="bg-white mb-6"
+                className="bg-white mb-6 dark:bg-slate-800"
                 id="workoutDate"
                 name="workoutDate"
                 type="text"

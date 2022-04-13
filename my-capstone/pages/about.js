@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function About() {
   return (
     <Layout>
-      <title> About - WildCat++</title>
+      <title> About-WildCat++</title>
       <br />
       <div className="min-h-screen p-10">
         <div className="space-y-10 md:space-y-0 md:grid ">
