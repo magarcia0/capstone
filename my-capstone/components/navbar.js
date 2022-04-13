@@ -3,14 +3,6 @@ import { siteTitle } from '../components/layout';
 import { useTheme } from 'next-themes';
 import { useSession, signIn, signOut, getSession } from "next-auth/react";
 
-const links = [
-  { href: '/', label: 'Home' },
-  { href: '/journal', label: 'Journal' },
-  { href: '/search', label: 'Search' },
-  { href: '/about', label: 'About' },
-  { href: '/api/auth/signin', label: 'Signin' },
-];
-
 export default function Nav() {
     const { theme, setTheme } = useTheme()
     const { data: session, status } = useSession();
@@ -46,6 +38,13 @@ export default function Nav() {
           <li>
             <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 0">
               <Link href="/search">Search</Link>
+
+            </div>
+          </li>
+
+          <li>
+            <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 0">
+              <Link href="/workouts">Workouts</Link>
 
             </div>
           </li>

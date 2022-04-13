@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import Layout from "../components/layout"
-import Products from "../components/search_products"
+import Layout from "../../components/layout"
+import Products from "../../components/products"
 
 const defaultEndpoint = "http://localhost:3000/api/data";
 
@@ -30,7 +30,9 @@ const Frontend = () => {
 
     return (
     <Layout>
+
         <Products products={ filteredProducts } filters={ filters } setFilters={ setFilters } />
+
     </Layout>
     );
 };

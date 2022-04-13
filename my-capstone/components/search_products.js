@@ -1,8 +1,9 @@
 import React from "react";
-import { useSession } from "next-auth/react";
+import { useSession, signIn, signOut, getSession } from "next-auth/react";
 
 const Products = (props) => {
-  const { data: status } = useSession();
+  const { data: session, status } = useSession();
+  const flag = 0;
   const search = (s) => {
     props.setFilters({
       s,
@@ -48,9 +49,6 @@ const Products = (props) => {
                       Equipment needed: {product.equipment}
                     </p>
                   </div>
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full">
-                    Add to Workout
-                  </button>
                   <div class="px-6 pt-4 mb-1 pb-2">
                     <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 pl-1 pr-1 mr-1 mb-2">
                       #{product.bodyPart}

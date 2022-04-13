@@ -56,7 +56,7 @@ export default function Journal({ posts }) {
     <>
       <div className="container flex h-screen dark:bg-slate-900">
         <Layout>
-          <title> Journal - {siteTitle}</title>
+          <title>Journal++</title>
           <button
             onClick={exitClick}
             className="w-5/6 mx-auto flex justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700 hover:bg-blue-600 md:py-4 md:text-lg xl:text-2xl lg:text-xl md:px-10"
