@@ -64,7 +64,7 @@ export default function Journal({ posts }) {
             New Entry
           </button>
           <br />
-          <h3 class="text-lg text-center font-bold m-5">Workout Journal</h3>
+          <h3 class="text-xlg text-center font-bold m-5">Journal</h3>
           <table class="rounded-t-lg m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto">
             <tr class="border-b-2 bg-slate-700 text-white border-gray-300">
               <th class="px-2 py-3">Title</th>
