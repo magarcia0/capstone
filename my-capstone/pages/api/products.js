@@ -1,12 +1,94 @@
 import React from "react";
-import { useSession } from "next-auth/react";
+import { PrismaClient } from "@prisma/client";
+import { getSession } from "next-auth/react";
 
-const Products = (props) => {
-  const { data: status } = useSession();
+export const getServerSideProps = async (ctx) => {
+  const prisma = new PrismaClient();
+  const session = await getSession(ctx);
+  const id = session.user.id;
+  const allPosts = await prisma.workouts.findMany({
+    where: {
+      authorId: id,
+    },
+  });
+  const stringified = JSON.stringify(allPosts);
+  const json_obj = JSON.parse(stringified);
+
+  console.log(id);
+  return {
+    props: {
+      posts: json_obj,
+    },
+  };
+};
+
+async function GetID(){
+  const prisma = new PrismaClient();
+    const session = await getSession();
+    const id = session.user.id;
+      const allPosts = await prisma.workouts.findMany({
+        where: {
+          authorId: id,
+        },
+      });
+
+      const stringified = JSON.stringify(allPosts);
+      const json_obj = JSON.parse(stringified);
+     console.error(id);
+
+};
+//export async function getServerSideProps() {
+/*
+export const getServerSideProps = async () => {
+  const session = await getSession();
+  const id = session.user.id;
+  console.log(id);
+
+  const allWorkouts= await prisma.workouts.findMany({
+    where: {
+      authorId: id,
+    },
+  });
+
+  const stringified = JSON.stringify(allWorkouts);
+  const json_workouts= JSON.parse(stringified);
+  //console.log(json_workouts);
+  return {
+    data: {
+      workouts: json_workouts,
+    },
+  };
+};*/
+
+const Products = (props, posts) => {
   const search = (s) => {
     props.setFilters({
       s,
     });
+  };
+
+  console.log(posts);
+  const SaveProduct = async (bodyPart, equipment, gifUrl, name, target) => {
+    /////////////////////////////////////////////////////this one works below
+
+    GetID();
+      var workoutId = posts?.map((wo) => {
+        var temp = 0;
+        //if(wo.id > temp){
+        temp = wo.id;
+        //}
+        return temp;
+      });
+
+      const body = { bodyPart, equipment, gifUrl, name, target, workoutId };
+      //console.error(posts);
+      await fetch("/api/exercise", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
   };
 
   return (
@@ -48,7 +130,18 @@ const Products = (props) => {
                       Equipment needed: {product.equipment}
                     </p>
                   </div>
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full">
+                  <button
+                    onClick={() =>
+                      SaveProduct(
+                        product.bodyPart,
+                        product.equipment,
+                        product.gifUrl,
+                        product.name,
+                        product.target
+                      )
+                    }
+                    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full"
+                  >
                     Add to Workout
                   </button>
                   <div class="px-6 pt-4 mb-1 pb-2">

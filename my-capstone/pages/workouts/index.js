@@ -6,7 +6,7 @@ export default function Workouts() {
   const router = useRouter();
   const newClick= (e) => {
     e.preventDefault();
-    router.push("/workouts/new");
+    router.push("/workouts/name");
   }; //newClick
 
   return (

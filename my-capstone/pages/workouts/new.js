@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Layout from "../../components/layout"
-import Products from "../../components/products"
+import Products from "../api/products"
 
 const defaultEndpoint = "http://localhost:3000/api/data";
 
@@ -30,7 +30,12 @@ const Frontend = () => {
 
     return (
     <Layout>
-
+      <div class="fixed right-4 sm:right-4 md:right-2 lg:right-24 xl:right-10 2xl:right-22 bottom-0 mb-24">
+        <button
+                class="w-12 md text-white text-center h-12 text-sm md:text-md lg:text-md font-bold xl:text-lg bg-red-600 rounded-full hover:bg-red-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">
+          <a className=''>Save</a>
+        </button>
+      </div>
         <Products products={ filteredProducts } filters={ filters } setFilters={ setFilters } />
 
     </Layout>

@@ -1,9 +1,6 @@
 import React from "react";
-import { useSession, signIn, signOut, getSession } from "next-auth/react";
 
 const Products = (props) => {
-  const { data: session, status } = useSession();
-  const flag = 0;
   const search = (s) => {
     props.setFilters({
       s,

@@ -23,6 +23,27 @@ model Post {
   authorId  Int?
 }
 
+model Workouts {
+  Name      String?
+  id        Int     @id @default(autoincrement())
+  author    User?   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  authorId  Int?
+  created   DateTime @default(now())
+  exercises Exercises[]
+}
+
+model Exercises {
+  bodypart  String
+  equipment String
+  gifurl    String
+  id        Int         @id @default(autoincrement())
+  name      String
+  target    String
+  workoutId Int
+  workout   Workouts?   @relation(fields: [workoutId], references: [id], onDelete: Cascade)
+  created   DateTime  @default(now())
+}
+
 model Account {
   id                Int     @id @default(autoincrement())
   type              String
@@ -63,6 +84,7 @@ model User {
   emailVerified DateTime?
   image         String?
   posts         Post[]
+  workouts      Workouts[]
   accounts      Account[]
   sessions      Session[]
 }
