@@ -1,87 +1,44 @@
-import React from "react";
-import { PrismaClient } from "@prisma/client";
+import React, { useEffect, useState } from "react";
 import { getSession } from "next-auth/react";
 
-export const getServerSideProps = async (ctx) => {
-  const prisma = new PrismaClient();
-  const session = await getSession(ctx);
-  const id = session.user.id;
-  const allPosts = await prisma.workouts.findMany({
-    where: {
-      authorId: id,
-    },
-  });
-  const stringified = JSON.stringify(allPosts);
-  const json_obj = JSON.parse(stringified);
+const defaultEndpoint = "http://localhost:3000/api/workoutid";
 
-  console.log(id);
-  return {
-    props: {
-      posts: json_obj,
-    },
-  };
-};
+const Products = (props) => {
+  const [allWorkouts, setAllWorkouts] = useState();
+  const [target_id, setTargetId] = useState();
 
-async function GetID(){
-  const prisma = new PrismaClient();
-    const session = await getSession();
-    const id = session.user.id;
-      const allPosts = await prisma.workouts.findMany({
-        where: {
-          authorId: id,
-        },
-      });
+//Below gets all workouts from back-end
+  useEffect( () => {
+    (
+      async () => {
+        const response = await fetch(defaultEndpoint);
+        const content = await response.json();
+        setAllWorkouts(content);
+      }
+    )()
+  }, []);
 
-      const stringified = JSON.stringify(allPosts);
-      const json_obj = JSON.parse(stringified);
-     console.error(id);
-
-};
-//export async function getServerSideProps() {
-/*
-export const getServerSideProps = async () => {
-  const session = await getSession();
-  const id = session.user.id;
-  console.log(id);
-
-  const allWorkouts= await prisma.workouts.findMany({
-    where: {
-      authorId: id,
-    },
-  });
-
-  const stringified = JSON.stringify(allWorkouts);
-  const json_workouts= JSON.parse(stringified);
-  //console.log(json_workouts);
-  return {
-    data: {
-      workouts: json_workouts,
-    },
-  };
-};*/
-
-const Products = (props, posts) => {
+//Below filters the exercises 
   const search = (s) => {
     props.setFilters({
       s,
     });
   };
 
-  console.log(posts);
+//Below saves the exercies to the workouts
   const SaveProduct = async (bodyPart, equipment, gifUrl, name, target) => {
-    /////////////////////////////////////////////////////this one works below
-
-    GetID();
-      var workoutId = posts?.map((wo) => {
+      var workoutId = 0;
+       allWorkouts?.map((wo) => {
         var temp = 0;
-        //if(wo.id > temp){
+        if(wo.id > temp){
         temp = wo.id;
-        //}
-        return temp;
+        setTargetId(temp);
+        }
       });
 
+      workoutId = target_id;
+      console.log(target_id)
       const body = { bodyPart, equipment, gifUrl, name, target, workoutId };
-      //console.error(posts);
       await fetch("/api/exercise", {
         method: "POST",
         headers: {

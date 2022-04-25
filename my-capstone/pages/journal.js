@@ -23,7 +23,7 @@ export const getServerSideProps = async (ctx) => {
       posts: json_obj,
     },
   };
-};
+}; //getServerSideProps
 
 export default function Journal({ posts }) {
   const router = useRouter();
