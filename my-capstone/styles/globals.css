@@ -53,8 +53,9 @@ a {
   box-sizing: border-box;
 }
 
+/* DO I NEED THESE?
 :root {
-  /* Your default theme */
+  /* Your default theme
   --background: white;
   --foreground: black;
 }
@@ -62,4 +63,16 @@ a {
 [data-theme='dark'] {
   --background: black;
   --foreground: white;
+}
+*/
+
+.image {
+
+align-items: center;
+justify-content: center;
+
+max-width: 200;
+margin-top: 3rem;
+margin-left: 0;
+padding-left: 0;
 }
