@@ -2,21 +2,31 @@ import Layout from "../../components/layout";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getSession } from "next-auth/react";
+import { PrismaClient } from "@prisma/client";
 
 const defaultEndpoint = "https://wildcat.plus/api/workoutid";
+const prisma = new PrismaClient();
 
 export const getServerSideProps = async (context) => {
   const session = await getSession(context);
   const id = session.user.id;
+
+  const allWorkouts = await prisma.workouts.findMany({
+    where: {
+      authorId: id,
+    },
+  });
+
   return {
     props: {
       id: id,
+      workouts: allWorkouts,
     },
   };
 };
 
-export default function Workouts({ id }) {
-  const [workouts, setWorkouts] = useState();
+export default function Workouts({ id, workouts }) {
+  //const [workouts, setWorkouts] = useState();
   const router = useRouter();
 
   const newClick = (e) => {
@@ -40,13 +50,13 @@ export default function Workouts({ id }) {
     }
   }; //
 
-  useEffect(() => {
+  /*useEffect(() => {
     (async () => {
       const response = await fetch(defaultEndpoint);
       const content = await response.json();
       setWorkouts(content);
     })();
-  }, []);
+  }, []);*/
 
   return (
     <Layout>
