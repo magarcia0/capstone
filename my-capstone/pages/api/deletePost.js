@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export default function async (req, res) {
+export default function handler(req, res) {
   const { id } = req.body;
   try {
     const deletePost= await prisma.post.delete({
