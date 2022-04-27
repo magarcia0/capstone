@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getSession } from "next-auth/react";
 
-const defaultEndpoint = "http://localhost:3000/api/workoutid";
+const defaultEndpoint = "https://wildcat.plus/api/workoutid";
 
 export const getServerSideProps = async (ctx) => {
   const session = await getSession(ctx);
@@ -50,7 +50,7 @@ export default function Workouts({ id }) {
 
   return (
     <Layout>
-      <title>Workouts++</title>
+      <title>Workouts+</title>
       <br />
       <div className="min-h-screen p-10">
         <div className="space-y-10 md:space-y-0 md:grid ">

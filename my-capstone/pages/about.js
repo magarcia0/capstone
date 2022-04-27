@@ -3,7 +3,7 @@ import Layout from "../components/layout";
 export default function About() {
   return (
     <Layout>
-      <title> About++</title>
+      <title> About+</title>
       <br />
       <div className="min-h-screen p-10">
         <div className="space-y-10 md:space-y-0 md:grid ">

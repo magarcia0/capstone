@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Layout from "../components/layout"
 import Products from "../components/search_products"
 
-const defaultEndpoint = "https://www.wildcat.plus/api/data";
+const defaultEndpoint = "https://wildcat.plus/api/data";
 
 const Frontend = () => {
     const [allProducts, setAllProducts] = useState([]);
