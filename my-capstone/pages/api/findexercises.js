@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export default async (req, res) => {
+export default function async (req, res) {
 
   if (req.method === "POST") {
     const { workoutId }  = req.body;
