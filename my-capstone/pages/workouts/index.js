@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { getSession } from "next-auth/react";
 
-const defaultEndpoint = "https://www.wildcat.plus/api/workoutid";
+const defaultEndpoint = "https://wildcat.plus/api/workoutid";
 
 export const getServerSideProps = async (context) => {
   const session = await getSession(context);
