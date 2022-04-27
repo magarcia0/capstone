@@ -9,7 +9,7 @@ export default function Accordion(props) {
 
   return (
     <div
-          class="justify-between items-center p-5 w-full font-medium text-left text-gray-900 bg-gray-100 rounded-t-xl border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800"
+          className="justify-between items-center p-5 w-full font-medium text-left text-gray-900 bg-gray-100 rounded-t-xl border border-b-0 border-gray-200 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800"
           style={{
               width: "100%",
               marginBottom: "15px",
@@ -34,7 +34,7 @@ export default function Accordion(props) {
               <p>{props.title}</p>
           </button>
           <div
-              class="p-5 border mb-2 border-b-0 bg-white border-gray-200 dark:border-gray-700 dark:bg-gray-900"
+              className="p-5 border mb-2 border-b-0 bg-white border-gray-200 dark:border-gray-700 dark:bg-gray-900"
               style={{ display: isShowing ? "block" : "none", padding: "10px" }}
               dangerouslySetInnerHTML={{
                   __html: props.content

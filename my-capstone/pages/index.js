@@ -1,5 +1,6 @@
 import { useSession } from 'next-auth/react';
 import Layout, { siteTitle } from '../components/layout';
+import Link from 'next/link';
 
 export default function Home() {
   const {status} = useSession();
@@ -29,18 +30,17 @@ export default function Home() {
                 <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                   <div className="flex justify-center lg:justify-start mt-6 ">
         { `${status}`=="unauthenticated" &&
-                    <a
+                    <Link
                       href="/api/auth/signin"
                       className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-gray-100 bg-red-700 dark:bg-red-800 dark:hover:bg-blue-700 hover:bg-blue-500 md:py-4 md:text-lg md:px-10">
                       Sign In
-                    </a>
-
-}
-                    <a
+                    </Link>
+        }
+                    <Link
                       href="/search"
                       className="pt-4 ml-7 w-full items-center justify-center px-8 py-3 border border-transparent text-base font-medium bg-red-400 dark:bg-red-500 dark:hover:bg-blue-700 text-white rounded-md hover:bg-blue-500 md:text-lg md:px-16">
                     Search 
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>

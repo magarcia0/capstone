@@ -65,14 +65,14 @@ export default function Journal({ posts }) {
             New Entry
           </button>
           <br />
-          <h3 class="text-xlg text-center font-bold m-5">Journal</h3>
-          <table class="rounded-t-lg m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto">
-            <tr class="border-b-2 bg-slate-700 text-white border-gray-300">
-              <th class="px-2 py-3">Title</th>
-              <th class="px-4 py-3">Workout</th>
-              <th class="px-4 py-3">Hours Spent</th>
-              <th class="px-4 py-3">Date</th>
-              <th class="px-4 py-3"></th>
+          <h3 className="text-xlg text-center font-bold m-5">Journal</h3>
+          <table className="rounded-t-lg m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto">
+            <tr className="border-b-2 bg-slate-700 text-white border-gray-300">
+              <th className="px-2 py-3">Title</th>
+              <th className="px-4 py-3">Workout</th>
+              <th className="px-4 py-3">Hours Spent</th>
+              <th className="px-4 py-3">Date</th>
+              <th className="px-4 py-3"></th>
             </tr>
 
             {posts?.map((p) => (
@@ -81,12 +81,12 @@ export default function Journal({ posts }) {
                   key={toString(p.id)}
                   class="text-white bg-gray-700 border-gray-600 border-b "
                 >
-                  <td class="px-4 py-3">{p.title}</td>
-                  <td class="px-4 py-3">{p.workout} </td>
-                  <td class="px-4 py-3">
+                  <td className="px-4 py-3">{p.title}</td>
+                  <td className="px-4 py-3">{p.workout} </td>
+                  <td className="px-4 py-3">
                     {p.timeSpent} <span className="font-bold">hr</span>{" "}
                   </td>
-                  <td class="px-4 py-3">{p.workoutDate}</td>
+                  <td className="px-4 py-3">{p.workoutDate}</td>
                   <button
                     onClick={() => deletePost(p.id)}
                     className="w-5/6 mx-auto mt-2 flex justify-center border border-transparent text-xs md:text-md lg:text-lg font-medium rounded-sm md:rounded-md lg:rounded-lg text-white bg-red-700 hover:bg-blue-600"

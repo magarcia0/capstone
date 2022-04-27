@@ -70,17 +70,17 @@ export default function Workouts({ id }) {
         </button>
         <br />
         <br />
-        <table class="rounded-t-lg m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto">
-          <tr class="border-b-2 bg-slate-700 text-white border-gray-300">
-            <th class="px-2 py-3">Title</th>
-            <th class="px-4 py-3"> </th>
-            <th class="px-4 py-3"> </th>
-            <th class="px-4 py-3"> </th>
-            <th class="px-4 py-3"> </th>
+        <table className="rounded-t-lg m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto">
+          <tr className="border-b-2 bg-slate-700 text-white border-gray-300">
+            <th className="px-2 py-3">Title</th>
+            <th className="px-4 py-3"> </th>
+            <th className="px-4 py-3"> </th>
+            <th className="px-4 py-3"> </th>
+            <th className="px-4 py-3"> </th>
           </tr>
           {workouts?.map((data) => {
             return (
-              <tr class="text-white bg-gray-700 border-gray-600 border-b">
+              <tr className="text-white bg-gray-700 border-gray-600 border-b">
                 <td key={ data.id } class="px-4 py-3">
                   <a
                     href={"/workouts/" + data.id}
@@ -89,9 +89,9 @@ export default function Workouts({ id }) {
                     {data.Name}
                   </a>
                 </td>
-                <td class="px-4 py-3">{workouts.created} </td>
-                <td class="px-4 py-3"> </td>
-                <td class="px-4 py-3"> </td>
+                <td className="px-4 py-3">{workouts.created} </td>
+                <td className="px-4 py-3"> </td>
+                <td className="px-4 py-3"> </td>
                 <button
                   onClick={() => deleteWorkout(data.id) }
                   className="w-5/6 mx-auto mt-2 flex justify-center border border-transparent text-xs md:text-md lg:text-lg font-medium rounded-sm md:rounded-md lg:rounded-lg text-white bg-red-700 hover:bg-blue-600"

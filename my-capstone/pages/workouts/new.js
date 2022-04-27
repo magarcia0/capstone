@@ -39,10 +39,10 @@ const Frontend = () => {
 
     return (
     <Layout>
-      <div class="fixed right-4 sm:right-4 md:right-2 lg:right-24 xl:right-10 2xl:right-22 bottom-0 mb-24">
+      <div className="fixed right-4 sm:right-4 md:right-2 lg:right-24 xl:right-10 2xl:right-22 bottom-0 mb-24">
         <button
         onClick={ saveWorkout }
-                class="w-12 md text-white text-center h-12 text-sm md:text-md lg:text-md font-bold xl:text-lg bg-red-600 rounded-full hover:bg-red-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">
+                className="w-12 md text-white text-center h-12 text-sm md:text-md lg:text-md font-bold xl:text-lg bg-red-600 rounded-full hover:bg-red-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">
           <a className=''>Save</a>
         </button>
       </div>
