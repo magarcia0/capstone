@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { getSession } from "next-auth/react";
 import Image from "next/image";
 
-const defaultEndpoint = "http://localhost:3000/api/workoutid";
+const defaultEndpoint = "http://wildcat.plus/api/workoutid";
 
 const Products = (props) => {
   const [allWorkouts, setAllWorkouts] = useState();
