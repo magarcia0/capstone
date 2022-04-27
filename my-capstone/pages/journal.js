@@ -79,7 +79,7 @@ export default function Journal({ posts }) {
               <>
                 <tr
                   key={toString(p.id)}
-                  class="text-white bg-gray-700 border-gray-600 border-b "
+                  className="text-white bg-gray-700 border-gray-600 border-b "
                 >
                   <td className="px-4 py-3">{p.title}</td>
                   <td className="px-4 py-3">{p.workout} </td>

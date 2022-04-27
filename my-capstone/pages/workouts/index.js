@@ -80,8 +80,8 @@ export default function Workouts({ id }) {
           </tr>
           {workouts?.map((data) => {
             return (
-              <tr className="text-white bg-gray-700 border-gray-600 border-b">
-                <td key={ data.id } class="px-4 py-3">
+              <tr key={ data.id } className="text-white bg-gray-700 border-gray-600 border-b">
+                <td className="px-4 py-3">
                   <a
                     href={"/workouts/" + data.id}
                     className="text-color- text-blue-300 "

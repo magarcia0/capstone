@@ -24,8 +24,8 @@ const Products = (props) => {
       <ul className="grid-cols-3 gap-4 flex flex-wrap list-none justify-center ">
         {props.products?.map((product) => {
           return (
-            <div className="shrink">
-              <li key={product.id} className="card">
+            <div key={ product.id } className="shrink">
+              <li className="card">
                 <div className="dark:bg-slate-600 px-4 py-6 mb-4 min-w-fit max-w-xs rounded-lg overflow-hidden shadow-xl">
                   <Image
                     className="w-full opacity-90 rounded-md"
@@ -33,7 +33,7 @@ const Products = (props) => {
                     alt="exercise image"
                   />
                   <div className="px-6 py-4">
-                    <div class="text-xl mb-2">
+                    <div className="text-xl mb-2">
                       Target Muscle:
                       <span className="font-bold text-xl mb-2">
                         {" "}

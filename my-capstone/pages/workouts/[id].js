@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Layout from "../../components/layout";
+import Image from "next/image";
 
 const exerciseEndpoint = "http://localhost:3000/api/findexercises";
 
@@ -44,7 +45,7 @@ const Details = ({ id }) => {
               <div key={product.id} className="shrink">
                 <li className="card">
                   <div className="dark:bg-slate-600 px-4 py-6 mb-4 min-w-fit max-w-xs rounded-lg overflow-hidden shadow-xl">
-                    <img
+                    <Image
                       className="w-full opacity-90 rounded-md"
                       src={product.gifurl}
                       alt="exercise image"
