@@ -38,7 +38,7 @@ export default function Nav() {
 
           <li>
             <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 0">
-              <Link href="/search">Search</Link>
+              <Link href="/search">Browse</Link>
 
             </div>
           </li>
@@ -75,7 +75,7 @@ export default function Nav() {
             <div className="text-center text-white px-3 pt-2 dark:text-white text-xl md:text-3xl lg:text-xl font-bold mb-3">
  
         Signed in as:<p> {session.user.name?session.user.name:session.user.email} </p>
-         <div className=''><Image className='ml-auto mr-auto rounded-[30px]' src={ session.user.image } alt='' width="60"/> </div>
+         <div className=''><Image className='ml-auto mr-auto rounded-[30px]' src={ session.user.image } alt='' height="60" width="60"/> </div>
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@ else{
 
           <li>
             <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 0">
-              <Link href="/search">Search</Link>
+              <Link href="/search">Browse</Link>
 
             </div>
           </li>

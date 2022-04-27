@@ -2,7 +2,7 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
   const { id } = req.body;
   try {
     const results = await prisma.workouts.findMany({

@@ -17,7 +17,6 @@ const Frontend = () => {
                 const response = await fetch(defaultEndpoint);
                 const content = await response.json();
                 setAllProducts(content);
-                allProducts = content;
                 setFilteredProducts(content);
             }
         )()
