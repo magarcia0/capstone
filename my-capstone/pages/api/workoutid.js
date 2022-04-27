@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 export default async function handler(req, res) {
   const { id } = req.body;
   try {
-    const results = await prisma.workouts.findUnique({
+    const results = await prisma.workouts.findMany({
       where: {
         id,
       },
