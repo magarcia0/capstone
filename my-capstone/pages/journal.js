@@ -55,7 +55,7 @@ export default function Journal({ posts }) {
   }
   return (
     <>
-      <div className="container flex h-screen dark:bg-slate-900">
+      <div className="h-screen dark:bg-slate-900">
         <Layout>
           <title>Journal++</title>
           <button

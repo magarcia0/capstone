@@ -1,12 +1,16 @@
-import { useSession } from 'next-auth/react';
-import Layout, { siteTitle } from '../components/layout';
-import Link from 'next/link';
+import { useSession } from "next-auth/react";
+import Layout, { siteTitle } from "../components/layout";
+import Link from "next/link";
+import ReactPlayer from "react-player";
+import React from 'react';
 
 export default function Home() {
-  const {status} = useSession();
+  const { status } = useSession();
   return (
     <Layout home>
-        <title>{siteTitle}</title>
+      <title>{siteTitle}</title>
+
+        { `${status}`=="unauthenticated" &&
       <div className="relative bg-white dark:bg-slate-900 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 bg-white dark:bg-slate-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
@@ -20,39 +24,41 @@ export default function Home() {
 
             <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-8 lg:mt-8 lg:px-8 xl:mt-8">
               <div className="sm:text-center lg:text-left">
-                <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl dark:text-white">
-                  <span className="block xl:inline"> This is my Capstone </span>
+                <h1 className="text-5xl tracking-tight font-extrabold text-gray-900  lg:text-6xl dark:text-white">
+                  <span className="block xl:inline"> Welcome Wildcats! </span>
                   <span className="block text-red-700 xl:inline">
-                    Something inspirational!
+                    "Today Decides Tomorrow"
                   </span>
                 </h1>
-</div>
-                <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-                  <div className="flex justify-center lg:justify-start mt-6 ">
-        { `${status}`=="unauthenticated" &&
+              </div>
+
+                <div className="mt-6 justify-center lg:justify-start">
+                  <div className="md:flex lg:flex xl:flex  sm:justify-center lg:justify-start">
                     <Link
                       href="/api/auth/signin">
-                      <a className="pt-4 ml-7 w-full items-center justify-center px-8 py-3 border border-transparent text-base font-medium bg-red-700 dark:bg-red-800 dark:hover:bg-blue-700 text-white rounded-md hover:bg-blue-500 md:text-lg md:px-16">
+                      <a className="pt-0.5 pb-1 sm:justify-center ml-7 sm:w-5/6 px-8 border border-transparent text-base font-medium bg-red-600 dark:bg-red-700 dark:hover:bg-blue-700 text-white rounded-md hover:bg-blue-500 md:text-lg md:px-16">
                       Sign In
                       </a>
                     </Link>
-        }
-                    <div>
+              </div>
+                </div>
+                <div className="mt-4 justify-center lg:justify-start">
+                  <div className="md:flex lg:flex xl:flex sm:pb-4 sm:justify-center lg:justify-start">
                     <Link
                       href="/search"
                       >
-                      <a className="pt-4 ml-7 w-full items-center justify-center px-8 py-3 border border-transparent text-base font-medium bg-red-400 dark:bg-red-500 dark:hover:bg-blue-700 text-white rounded-md hover:bg-blue-500 md:text-lg md:px-16">
-                    Browse 
-                    </a>
+                      <a className="pt-0.5 pb-1 sm:justify-center ml-7  xs:w-5/6  sm:w-5/6 px-8 border border-transparent text-base font-medium bg-red-400 dark:bg-red-500 dark:hover:bg-blue-700 text-white rounded-md hover:bg-blue-500 md:text-lg md:px-16">
+                        Browse 
+                      </a>
                     </Link>
-
                   </div>
-                </div>
-              </div>
+                  </div>
+
             </main>
           </div>
         </div>
       </div>
+        }
       <div className="min-h-screen p-10">
         <div className="space-y-10 md:space-y-0 md:grid ">
           <div className=" dark:text-white md:flex md:flex-col md:justify-center">

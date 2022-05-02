@@ -70,7 +70,7 @@ export default function handler(req, res) {
           gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/3294.gif',
           id: '3294',
           name: 'archer push up',
-          target: 'pectorals'
+          target: 'chest'
         },
         {
           bodyPart: 'waist',
@@ -110,7 +110,7 @@ export default function handler(req, res) {
           gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/0009.gif',
           id: '0009',
           name: 'assisted chest dip (kneeling)',
-          target: 'pectorals'
+          target: 'chest'
         },
         {
           bodyPart: 'waist',
@@ -222,7 +222,7 @@ export default function handler(req, res) {
           gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/1716.gif',
           id: '1716',
           name: 'assisted seated pectoralis major stretch with stability ball',
-          target: 'pectorals'
+          target: 'chest'
         },
         {
           bodyPart: 'upper legs',
@@ -278,7 +278,7 @@ export default function handler(req, res) {
           gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/2364.gif',
           id: '2364',
           name: 'assisted wide-grip chest dip (kneeling)',
-          target: 'pectorals'
+          target: 'chest'
         },
         {
           bodyPart: 'cardio',
@@ -374,7 +374,7 @@ export default function handler(req, res) {
           gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/1254.gif',
           id: '1254',
           name: 'band bench press',
-          target: 'pectorals'
+          target: 'chest'
         },
         {
           bodyPart: 'upper legs',
@@ -534,7 +534,7 @@ export default function handler(req, res) {
           gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/0989.gif',
           id: '0989',
           name: 'band one arm twisting chest press',
-          target: 'pectorals'
+          target: 'chest'
         },
         {
           bodyPart: 'back',
@@ -790,7 +790,7 @@ export default function handler(req, res) {
           gifUrl: 'http://d205bpvrqc9yn1.cloudfront.net/0025.gif',
           id: '0025',
           name: 'barbell bench press',
-          target: 'pectorals'
+          target: 'chest'
         },
         {
           bodyPart: 'upper legs',
@@ -1046,7 +1046,7 @@ export default function handler(req, res) {
           "gifUrl":"http://d205bpvrqc9yn1.cloudfront.net/0122.gif",
           "id":"0122",
           "name":"barbell wide bench press",
-          "target":"pectorals",
+          "target":"chest",
           },
           {
           "bodyPart":"chest",
@@ -1054,7 +1054,7 @@ export default function handler(req, res) {
           "gifUrl":"http://d205bpvrqc9yn1.cloudfront.net/1258.gif",
           "id":"1258",
           "name":"barbell wide reverse grip bench press",
-          "target":"pectorals",
+          "target":"chest",
           },
           {
           "bodyPart":"upper legs",
@@ -1126,7 +1126,7 @@ export default function handler(req, res) {
           "gifUrl":"http://d205bpvrqc9yn1.cloudfront.net/1259.gif",
           "id":"1259",
           "name":"behind head chest stretch",
-          "target":"pectorals",
+          "target":"chest",
           },
           {
           "bodyPart":"upper arms",
@@ -1390,7 +1390,7 @@ export default function handler(req, res) {
           "gifUrl":"http://d205bpvrqc9yn1.cloudfront.net/0151.gif",
           "id":"0151",
           "name":"cable bench press",
-          "target":"pectorals",
+          "target":"chest",
           },
           {
           "bodyPart":"upper arms",
@@ -1438,7 +1438,7 @@ export default function handler(req, res) {
           "gifUrl":"http://d205bpvrqc9yn1.cloudfront.net/0155.gif",
           "id":"0155",
           "name":"cable cross-over variation",
-          "target":"pectorals",
+          "target":"chest",
           },
           {
           "bodyPart":"upper arms",
@@ -1462,7 +1462,7 @@ export default function handler(req, res) {
           "gifUrl":"http://d205bpvrqc9yn1.cloudfront.net/0158.gif",
           "id":"0158",
           "name":"cable decline fly",
-          "target":"pectorals",
+          "target":"chest",
           },
           {
           "bodyPart":"chest",
@@ -1470,7 +1470,7 @@ export default function handler(req, res) {
           "gifUrl":"http://d205bpvrqc9yn1.cloudfront.net/1260.gif",
           "id":"1260",
           "name":"cable decline one arm press",
-          "target":"pectorals",
+          "target":"chest",
           },
           {
           "bodyPart":"chest",
@@ -1478,7 +1478,7 @@ export default function handler(req, res) {
           "gifUrl":"http://d205bpvrqc9yn1.cloudfront.net/1261.gif",
           "id":"1261",
           "name":"cable decline press",
-          "target":"pectorals",
+          "target":"chest",
           },
           {
           "bodyPart":"back",
@@ -1566,7 +1566,7 @@ export default function handler(req, res) {
           "gifUrl":"http://d205bpvrqc9yn1.cloudfront.net/0169.gif",
           "id":"0169",
           "name":"cable incline bench press",
-          "target":"pectorals",
+          "target":"chest",
           },
           {
           "bodyPart":"back",
@@ -1582,7 +1582,7 @@ export default function handler(req, res) {
           "gifUrl":"http://d205bpvrqc9yn1.cloudfront.net/0171.gif",
           "id":"0171",
           "name":"cable incline fly",
-          "target":"pectorals",
+          "target":"chest",
           },
           {
           "bodyPart":"chest",
@@ -1590,7 +1590,7 @@ export default function handler(req, res) {
           "gifUrl":"http://d205bpvrqc9yn1.cloudfront.net/0170.gif",
           "id":"0170",
           "name":"cable incline fly (on stability ball)",
-          "target":"pectorals",
+          "target":"chest",
           },
           {
           "bodyPart":"back",

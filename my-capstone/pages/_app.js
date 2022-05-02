@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import { ThemeProvider } from 'next-themes'
 import { SessionProvider } from 'next-auth/react'
+import '../particles.css'
 
 export default function MyApp({ Component, pageProps: { session, ...pageProps} }) {
   return(

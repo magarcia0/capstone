@@ -1,16 +1,56 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import Nav from '../components/navbar';
-import Header from '../components/header';
-import Footer from '../components/footer';
+import Link from "next/link";
+import Nav from "../components/navbar";
+import Header from "../components/header";
+import Footer from "../components/footer";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
 
-export const siteTitle = 'WildCat+';
+export const siteTitle = "WildCat+";
 
 export default function Layout({ children, home }) {
+  const { data: session, status } = useSession();
+
   return (
     <div className="dark:bg-slate-900">
       <Header />
       <Nav />
+      {(() => {
+        if (status === "authenticated") {
+          return (
+            <div className="p-10">
+              <div className="md:space-y-0 md:grid">
+                <div className="dark:text-white md:flex md:flex-col md:justify-center xl:justify-center lg:justify-center"></div>
+                <div className="rounded-md bg-gradient-to-r dark:from-red-800 dark:via-slate-700 dark:to-red-800 from-slate-700 via-red-800 to-slate-700">
+                  <div className="text-center text-white px-3 pt-2 dark:text-white text-xl md:text-3xl lg:text-xl font-bold mb-3">
+                    Signed in as:
+                    <p>
+                      {" "}
+                      {session.user.name
+                        ? session.user.name
+                        : session.user.email}{" "}
+                    </p>
+                    <div className="">
+                      {" "}
+                      <Image
+                        className="ml-auto mr-auto rounded-[30px]"
+                        src={
+                          session.user.image
+                            ? session.user.image
+                            : default_profile
+                        }
+                        alt="Profile Image"
+                        height="60"
+                        width="60"
+                      />{" "}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        }
+      })()}
+
       <div className="container bg-white mx-auto p-4 text-center dark:bg-slate-900">
         {home ? (
           <>{/* This layout is for the home page */}</>
@@ -18,11 +58,11 @@ export default function Layout({ children, home }) {
           <>{/* This is a top layout for pages other than home */}</>
         )}
         {/* This is a bottom layout for pages other than home */}
-        <main className='dark:bg-slate-900'>{children}</main>
+        <main className="dark:bg-slate-900">{children}</main>
         {!home && (
           <div className="pt-8 text-left">
             <Link href="/">
-              <a>← Back to home</a>
+              <a>← Back to Home</a>
             </Link>
           </div>
         )}

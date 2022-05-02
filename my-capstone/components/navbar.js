@@ -1,139 +1,144 @@
-import Link from 'next/link';
-import Image from 'next/image'; 
-import { siteTitle } from '../components/layout';
-import { useTheme } from 'next-themes';
-import { useSession, signOut } from "next-auth/react";
+import Link from "next/link";
+import { siteTitle } from "../components/layout";
+import { useTheme } from "next-themes";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useState } from "react";
 
+export const LINKS = [{ href: "/", label: "Home" }];
+
+export const menu = (
+  <svg
+    width="22"
+    height="22"
+    viewBox="0 0 22 22"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M2 6C2 5.44772 2.44772 5 3 5H21C21.5523 5 22 5.44772 22 6C22 6.55228 21.5523 7 21 7H3C2.44772 7 2 6.55228 2 6Z"
+      fill="currentColor"
+    />
+    <path
+      d="M2 12.0322C2 11.4799 2.44772 11.0322 3 11.0322H21C21.5523 11.0322 22 11.4799 22 12.0322C22 12.5845 21.5523 13.0322 21 13.0322H3C2.44772 13.0322 2 12.5845 2 12.0322Z"
+      fill="currentColor"
+    />
+    <path
+      d="M3 17.0645C2.44772 17.0645 2 17.5122 2 18.0645C2 18.6167 2.44772 19.0645 3 19.0645H21C21.5523 19.0645 22 18.6167 22 18.0645C22 17.5122 21.5523 17.0645 21 17.0645H3Z"
+      fill="currentColor"
+    />
+  </svg>
+);
 export default function Nav() {
-    const { theme, setTheme } = useTheme()
-    const { data: session, status } = useSession();
+  const { theme, setTheme } = useTheme();
+  const { data: session, status } = useSession();
+  const [navbarOpen, setNavbarOpen] = useState(false);
 
- if(status == "authenticated"){
   return (
     <>
-        <nav className="bg-slate-700 text-black w-screen">
-      <ul className="flex items-center justify-between p-1 list-none">
-        <li>
-          <Link href="/">
-            <a className="pl-2 md:pl-3 text-white no-underline ml:8 md:text-2xl text-xl font-bold hover:text-blue-400 ">
-              {siteTitle}
-            </a>
-          </Link>
-        </li>
+      <nav className="relative flex flex-wrap items-center justify-between py-2 navbar-expand-lg bg-slate-700 text-black shadow">
+        <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+          <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
+            <Link href="/">
+              <a className="text-white  no-underline md:text-2xl text-xl font-bold hover:text-blue-400 px-2">
+                {siteTitle}
+              </a>
+            </Link>
+            <button
+              className="text-white cursor-pointer text-xl leading-none px-3 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              type="button"
+              onClick={() => setNavbarOpen(!navbarOpen)}
+            >
+              {menu}
+            </button>
+          </div>
+          <div
+            className={
+              "lg:flex flex-grow items-center" +
+              (navbarOpen ? " flex" : " hidden")
+            }
+            id="example-navbar-danger"
+          >
+            <ul className="flex text-white flex-col lg:flex-row list-none lg:ml-auto font-bold text-lg px-5">
+              {LINKS.map(({ href, label }) => (
+                <li key={`${href}${label}`}>
+                        <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 0">
+                    <Link href={href}>{label}</Link>
+                  </div>
+                </li>
+              ))}
+              {(() => {
+                if (status == "authenticated") {
+                  return (
+                    <>
+                      <li>
+                        <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400">
+                          <Link href="/journal">Journal</Link>
+                        </div>
+                      </li>
 
+                      <li>
+                        <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400">
+                          <Link href="/workouts">Workouts</Link>
+                        </div>
+                      </li>
+                    </>
+                  );
+                } else {
+                  return (
+                    <>
+                      <li>
+                        <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400">
+                          <Link href="/search">Browse</Link>
+                        </div>
+                      </li>
+                      <li>
+                        <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400">
+                          <Link href="/about">About</Link>
+                        </div>
+                      </li>
+                    </>
+                  );
+                }
+              })()}
+              <li>
+                {(() => {
+                  if (session) {
+                    return (
+                      <button
+                        className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400"
+                        onClick={() => signOut({callbackUrl:'/'})}
+                      >
+                        Sign out
+                      </button>
+                    );
+                  } else {
+                    return (
+                      <button
 
-        <ul className="flex items-center justify-between list-none">
-          <li>
-            <div className="flex-1 no-underline px-4 py-2 font-bold text-white hover:text-blue-400 ">
-              <Link href="/">Home</Link>
-            </div>
-          </li>
-
-          <li>
-            <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 ">
-              <Link href="/journal">Journal</Link>
-
-            </div>
-          </li>
-
-          <li>
-            <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 0">
-              <Link href="/search">Browse</Link>
-
-            </div>
-          </li>
-
-          <li>
-            <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 0">
-              <Link href="/workouts">Workouts</Link>
-
-            </div>
-          </li>
-
-          <li>
-            <button className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 " onClick={() => signOut({callbackUrl:'/'})}>Sign out</button>
-          </li>
-          <li>
-      <button
-          className="ml-6 px-2 text-white bg-slate-800 dark:hover:bg-blue-300 dark:hover:text-white hover:bg-blue-300 dark:text-yellow-500 dark:bg-yellow-100 border-black font-semibold rounded-md"
-          onClick={() => {
-            setTheme(theme === 'light' ? 'dark' : 'light')
-          }}
-        >
-        { theme == 'light' ? 'Dark Mode' : 'Light Mode'}
-        </button>
-          </li>
-
-        </ul>
-      </ul>
-    </nav>
-
-    <div className="p-10">
-        <div className="md:space-y-0 md:grid">
-          <div className="dark:text-white md:flex md:flex-col md:justify-center xl:justify-center lg:justify-center"></div>
-          <div className="rounded-md bg-gradient-to-r dark:from-red-800 dark:via-slate-700 dark:to-red-800 from-slate-700 via-red-800 to-slate-700">
-            <div className="text-center text-white px-3 pt-2 dark:text-white text-xl md:text-3xl lg:text-xl font-bold mb-3">
- 
-        Signed in as:<p> {session.user.name?session.user.name:session.user.email} </p>
-         <div className=''> <Image className='ml-auto mr-auto rounded-[30px]' src={ session.user.image?session.user.image:<div></div> } alt='Profile Image' height="60" width="60"/> </div>
-            </div>
+                        className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400"
+                        onClick={() => signIn()}
+                      >
+                        Sign in
+                      </button>
+                    );
+                  }
+                })()}
+              </li>
+              <li>
+                <button
+                  className="ml-3 px-3 mt-2 text-white bg-slate-900  dark:text-yellow-500 dark:bg-yellow-100 border-black font-semibold rounded-md"
+                  onClick={() => {
+                    setTheme(theme === "light" ? "dark" : "light");
+                  }}
+                >
+                  {theme === "light" ? "Dark" : "Light"}
+                </button>
+              </li>
+              <li></li>
+            </ul>
           </div>
         </div>
-      </div>
-
-      </>
+      </nav>
+    </>
   );
-}
-else{
-  return (
-    <nav className="bg-slate-700 text-black w-screen">
-
-      <ul className="flex items-center justify-between p-1 list-none">
-        <li>
-          <Link href="/">
-            <a className="pl-2 md:pl-8 text-white no-underline md:text-3xl text-2xl font-bold hover:text-blue-400">
-              {siteTitle}
-            </a>
-          </Link>
-        </li>
-
-        <ul className="flex items-center justify-between list-none">
-            <li>
-              <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400">
-                <Link href="/">Home</Link>
-              </div>
-            </li>
-            <li>
-              <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 ">
-                <Link href="/about">About</Link>
-              </div>
-            </li>
-
-          <li>
-            <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 0">
-              <Link href="/search">Browse</Link>
-
-            </div>
-          </li>
-
-            <li>
-              <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 ">
-                <Link href="/api/auth/signin">Signin</Link>
-              </div>
-            </li>
-          <li>
-      <button
-          className="ml-6 px-2 text-white bg-slate-800  dark:text-yellow-500 dark:bg-yellow-100 border-black font-semibold rounded-md"
-          onClick={() => {
-            setTheme(theme === 'light' ? 'dark' : 'light')
-          }}
-        >
-        { theme == 'light' ? 'Dark Mode' : 'Light Mode'}
-        </button>
-          </li>
-        </ul>
-      </ul>
-    </nav>
-  );
-}
 }
