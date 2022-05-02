@@ -36,7 +36,7 @@ export default function Home() {
                   <div className="md:flex lg:flex xl:flex  sm:justify-center lg:justify-start">
                     <Link
                       href="/api/auth/signin">
-                      <a className="pt-0.5 pb-1 sm:justify-center ml-7 sm:w-5/6 px-8 border border-transparent text-base font-medium bg-red-600 dark:bg-red-700 dark:hover:bg-blue-700 text-white rounded-md hover:bg-blue-500 md:text-lg md:px-16">
+                      <a className="pt-0.5 pb-1 sm:justify-center md:ml-2 ml-auto sm:w-5/6 px-8 border border-transparent text-base font-medium bg-red-600 dark:bg-red-700 dark:hover:bg-blue-700 text-white rounded-md hover:bg-blue-500 md:text-lg md:px-16">
                       Sign In
                       </a>
                     </Link>
@@ -47,7 +47,7 @@ export default function Home() {
                     <Link
                       href="/search"
                       >
-                      <a className="pt-0.5 pb-1 sm:justify-center ml-7  xs:w-5/6  sm:w-5/6 px-8 border border-transparent text-base font-medium bg-red-400 dark:bg-red-500 dark:hover:bg-blue-700 text-white rounded-md hover:bg-blue-500 md:text-lg md:px-16">
+                      <a className="pt-0.5 pb-1 sm:justify-center md:ml-2 ml-auto xs:w-5/6  sm:w-5/6 px-8 border border-transparent text-base font-medium bg-red-400 dark:bg-red-500 dark:hover:bg-blue-700 text-white rounded-md hover:bg-blue-500 md:text-lg md:px-16">
                         Browse 
                       </a>
                     </Link>
