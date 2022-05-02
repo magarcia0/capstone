@@ -27,7 +27,7 @@ export default function Home() {
                 <h1 className="text-5xl tracking-tight font-extrabold text-gray-900  lg:text-6xl dark:text-white">
                   <span className="block xl:inline"> Welcome Wildcats! </span>
                   <span className="block text-red-700 xl:inline">
-                    "Today Decides Tomorrow"
+                    &ldquo;Today Decides Tomorrow&rdquo;
                   </span>
                 </h1>
               </div>
