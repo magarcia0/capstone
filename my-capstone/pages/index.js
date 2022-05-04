@@ -1,15 +1,27 @@
 import { useSession } from "next-auth/react";
 import Layout, { siteTitle } from "../components/layout";
 import Link from "next/link";
-import ReactPlayer from "react-player";
 import React from 'react';
+import { motion } from "framer-motion";
 
 export default function Home() {
   const { status } = useSession();
   return (
     <Layout home>
       <title>{siteTitle}</title>
-
+    <motion.div initial="hidden" animate="visible" variants={ {
+      hidden: {
+        scale: 0.8,
+        opacity: 0,
+      },
+      visible: {
+        scale: 1,
+        opacity: 1,
+        transition: {
+          delay:.4,
+        }
+      },
+    }}>
       <div className="relative bg-white dark:bg-slate-900 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 bg-white dark:bg-slate-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
@@ -41,10 +53,7 @@ export default function Home() {
                     </Link>
               </div>
                 </div>
-}
-
-
-
+        }
                 <div className="mt-4 justify-center lg:justify-start">
                   <div className="md:flex lg:flex xl:flex sm:pb-4 sm:justify-center lg:justify-start">
                     <Link
@@ -60,7 +69,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
+    </motion.div>
       <div className="min-h-screen p-10">
         <div className="space-y-10 md:space-y-0 md:grid ">
             <div className="w-full dark:bg-gradient-to-t dark:from-red-800 dark:to-slate-800 h-screen rounded-lg shadow-2xl bg-slate-700">
