@@ -55,7 +55,7 @@ export default function Home() {
                 </div>
         }
                 <div className="mt-4 justify-center lg:justify-start">
-                  <div className="md:flex lg:flex xl:flex sm:pb-4 sm:justify-center lg:justify-start">
+                  <div className="md:flex  lg:flex xl:flex sm:pb-4 sm:justify-center lg:justify-start">
                     <Link
                       href="/search"
                       >
