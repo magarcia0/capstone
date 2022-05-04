@@ -17,7 +17,7 @@ export default function Layout({ children, home }) {
       {(() => {
         if (status === "authenticated") {
           return (
-            <div className="p-10">
+            <div className="p-10 w-7/12 mx-auto border border-transparent">
               <div className="md:space-y-0 md:grid">
                 <div className="dark:text-white md:flex md:flex-col md:justify-center xl:justify-center lg:justify-center"></div>
                 <div className="rounded-md bg-gradient-to-r dark:from-red-800 dark:via-slate-700 dark:to-red-800 from-slate-700 via-red-800 to-slate-700">

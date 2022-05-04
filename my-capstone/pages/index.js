@@ -10,7 +10,6 @@ export default function Home() {
     <Layout home>
       <title>{siteTitle}</title>
 
-        { `${status}`=="unauthenticated" &&
       <div className="relative bg-white dark:bg-slate-900 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="relative z-10 pb-8 bg-white dark:bg-slate-900 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
@@ -31,7 +30,7 @@ export default function Home() {
                   </span>
                 </h1>
               </div>
-
+        { `${status}`==="unauthenticated" &&
                 <div className="mt-6 justify-center lg:justify-start">
                   <div className="md:flex lg:flex xl:flex  sm:justify-center lg:justify-start">
                     <Link
@@ -42,6 +41,10 @@ export default function Home() {
                     </Link>
               </div>
                 </div>
+}
+
+
+
                 <div className="mt-4 justify-center lg:justify-start">
                   <div className="md:flex lg:flex xl:flex sm:pb-4 sm:justify-center lg:justify-start">
                     <Link
@@ -53,34 +56,29 @@ export default function Home() {
                     </Link>
                   </div>
                   </div>
-
             </main>
           </div>
         </div>
       </div>
-        }
+
       <div className="min-h-screen p-10">
         <div className="space-y-10 md:space-y-0 md:grid ">
-          <div className=" dark:text-white md:flex md:flex-col md:justify-center">
-          </div>
-          <div className="">
             <div className="w-full dark:bg-gradient-to-t dark:from-red-800 dark:to-slate-800 h-screen rounded-lg shadow-2xl bg-slate-700">
              <h2 className="text-white pt-16 text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
               Some stuff about the web app:
             </h2>
         <ol className="space-y-3 list-decimal list-inside text-center text-lg text-white md:text-xl">
           <li className=" leading-loose font-bold">
-            It will be awesome
+            Free to use!
           </li>
           <li className="leading-loose font-bold">
-            It will be the best
+            Build customized workouts for your gym sessions!
           </li>
           <li className="leading-loose font-bold">
-            It will be numero uno
+            Journal lets you track your fitness journey!
           </li>
         </ol>
             </div>
-          </div>
         </div>
       </div>
     </Layout>
