@@ -73,7 +73,7 @@ export default function Journal({ posts }) {
             New Entry
           </button>
           <br />
-          <table className="rounded-t-lg m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto">
+          <table className="rounded-t-lg m-5 w-5/6 sm:w-2/6 dark:bg-gray-800 dark:text-white mx-auto">
             <tr className="border-b-2 bg-slate-700 text-white border-gray-300">
               <th className="px-2 py-3">Title</th>
               <th className="px-4 py-3">Workout</th>
