@@ -39,6 +39,17 @@ const Products = (props) => {
 
       workoutId = target_id;
       console.log(target_id)
+      if(workoutId == null){
+       allWorkouts?.map((wo) => {
+        var temp = 0;
+        if(wo.id > temp){
+        temp = wo.id;
+        setTargetId(temp);
+        }
+      });
+      }
+      workoutId = target_id;
+      console.log(target_id)
       const body = { bodyPart, equipment, gifUrl, name, target, workoutId };
       await fetch("/api/exercise", {
         method: "POST",

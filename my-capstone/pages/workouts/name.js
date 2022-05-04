@@ -53,11 +53,11 @@ export default function WorkoutName({ id }) {
           <div className="">
             <div className="w-full rounded-lg shadow-2xl bg-slate-600 ">
               <h2 className="mb-14 text-white text-2xl md:text-4xl lg:text-6xl font-bold pt-14">
-                New post!
+                Builder
               </h2>
               <form onSubmit={SaveWorkoutName}>
                 <label htmlFor="name" className="pr-2 text-white text-3xl">
-                  Enter A Workout Name
+                  Enter Workout Name
                 </label>
                 <input
                   className="bg-white lg:mb-5 lg:mt-24 dark:bg-slate-800"
@@ -80,7 +80,7 @@ export default function WorkoutName({ id }) {
                     type="submit"
                     className="m-auto mb-4 flex items-center justify-center border border-transparent text-base font-medium rounded-md text-gray-100 bg-red-800 hover:bg-blue-400 md:py-4 md:text-lg md:px-10"
                   >
-                    Save
+                    Next
                   </button>
                 </div>
               </form>
