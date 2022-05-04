@@ -4,9 +4,11 @@ import Image from "next/image";
 
 const defaultEndpoint = "https://wildcat.plus/api/workoutid";
 
+
 const Products = (props) => {
   const [allWorkouts, setAllWorkouts] = useState();
   const [target_id, setTargetId] = useState();
+  const [enabled, setButton] = useState(false);
 
 //Below gets all workouts from back-end
   useEffect( () => {
@@ -29,6 +31,7 @@ const Products = (props) => {
 //Below saves the exercies to the workouts
   const SaveProduct = async (bodyPart, equipment, gifUrl, name, target) => {
       var workoutId = 0;
+      try{
        allWorkouts?.map((wo) => {
         var temp = 0;
         if(wo.id > temp){
@@ -36,19 +39,11 @@ const Products = (props) => {
         setTargetId(temp);
         }
       });
-
       workoutId = target_id;
-      console.log(target_id)
-      if(workoutId == null){
-       allWorkouts?.map((wo) => {
-        var temp = 0;
-        if(wo.id > temp){
-        temp = wo.id;
-        setTargetId(temp);
-        }
-      });
       }
-      workoutId = target_id;
+      catch(error){
+        console.log(error);
+      }
       console.log(target_id)
       const body = { bodyPart, equipment, gifUrl, name, target, workoutId };
       await fetch("/api/exercise", {
