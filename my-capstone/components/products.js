@@ -8,7 +8,7 @@ const defaultEndpoint = "https://wildcat.plus/api/workoutid";
 const Products = (props) => {
   const [allWorkouts, setAllWorkouts] = useState();
   const [target_id, setTargetId] = useState();
-  const [enabled, setButton] = useState(false);
+  const [enabled, setButton] = useState(true);
 
 //Below gets all workouts from back-end
   useEffect( () => {
@@ -31,6 +31,7 @@ const Products = (props) => {
 //Below saves the exercies to the workouts
   const SaveProduct = async (bodyPart, equipment, gifUrl, name, target) => {
       var workoutId = 0;
+      setButton(!enabled);
       try{
        allWorkouts?.map((wo) => {
         var temp = 0;
@@ -94,7 +95,7 @@ const Products = (props) => {
                       Equipment needed: {product.equipment}
                     </p>
                   </div>
-                  <button
+                 { enabled ? <button
                     onClick={() =>
                       SaveProduct(
                         product.bodyPart,
@@ -107,7 +108,7 @@ const Products = (props) => {
                     className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full"
                   >
                     Add to Workout
-                  </button>
+                  </button> : <div className=" text-green-600">Selected</div>}
                   <div className="px-6 pt-4 mb-1 pb-2">
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 pl-1 pr-1 mr-1 mb-2">
                       #{product.bodyPart}
