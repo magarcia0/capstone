@@ -96,7 +96,6 @@ const Products = (props) => {
                       Equipment needed: {product.equipment}
                     </p>
                   </div>
-                  <div key={product.id} className={enabled ? "" : "hidden"} id={product.id}>
                     <button key={product.id}
                       onClick={() =>
                         SaveProduct(
@@ -111,7 +110,6 @@ const Products = (props) => {
                     >
                       Add to Workout
                     </button>
-                  </div>
                   <div className="px-6 pt-4 mb-1 pb-2">
                     <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-semibold text-gray-700 pl-1 pr-1 mr-1 mb-2">
                       #{product.bodyPart}
