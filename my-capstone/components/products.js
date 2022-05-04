@@ -73,8 +73,8 @@ const Products = (props) => {
         {props.products?.map((product) => {
           return (
             <div key={ product.id } className="shrink">
-              <li className="card">
-                <div className="dark:bg-slate-600 px-4 py-6 mb-4 min-w-fit max-w-xs rounded-lg overflow-hidden shadow-xl">
+              <li key={ product.id} className="card">
+                <div key={ product.id } className="dark:bg-slate-600 px-4 py-6 mb-4 min-w-fit max-w-xs rounded-lg overflow-hidden shadow-xl">
                   <Image
                     className="w-full opacity-90 rounded-md" width={300} height={300}
                     src={product.gifUrl}
