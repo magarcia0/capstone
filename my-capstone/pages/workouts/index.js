@@ -52,11 +52,10 @@ export default function Workouts({ id, workouts }) {
       <title>Workouts+</title>
       <br />
       <div className="min-h-screen p-10">
-        <div className="space-y-10 md:space-y-0 md:grid ">
-          <div className=" dark:text-white md:flex md:flex-col md:justify-center"></div>
-          <div className="rounded-md  bg-gradient-to-b from-slate-700 to-slate-800">
+      <div className="flex justify-center">
+          <div className="rounded-md w-5/6 bg-gradient-to-b from-slate-700 to-slate-800">
             <h2 className="text-white text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
-              Workout Entries
+               Workouts
             </h2>
           </div>
         </div>
@@ -65,7 +64,7 @@ export default function Workouts({ id, workouts }) {
           onClick={newClick}
           className="w-5/6 mx-auto flex justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700 hover:bg-blue-600 md:py-4 md:text-lg xl:text-2xl lg:text-xl md:px-10"
         >
-          New Entry
+          Build Workout
         </button>
         <br />
         <br />

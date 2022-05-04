@@ -43,7 +43,7 @@ const Frontend = () => {
         <button
         onClick={ saveWorkout }
                 className="w-12 md text-white text-center h-12 text-sm md:text-md lg:text-md font-bold xl:text-lg bg-red-600 rounded-full hover:bg-red-700 active:shadow-lg mouse shadow transition ease-in duration-200 focus:outline-none">
-          <a className=''>Save</a>
+          <a className=''>Next</a>
         </button>
       </div>
         <Products products={ filteredProducts } filters={ filters } setFilters={ setFilters } />

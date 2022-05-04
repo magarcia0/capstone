@@ -57,7 +57,15 @@ export default function Journal({ posts }) {
     <>
       <div className="h-screen dark:bg-slate-900">
         <Layout>
-          <title>Journal++</title>
+          <title>Journal+</title>
+          <div className="flex justify-center">
+          <div className="rounded-md w-5/6 bg-gradient-to-b from-slate-700 to-slate-800">
+            <h2 className="text-white text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
+              Journal 
+            </h2>
+          </div>
+        </div>
+        <br />
           <button
             onClick={exitClick}
             className="w-5/6 mx-auto flex justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-red-700 hover:bg-blue-600 md:py-4 md:text-lg xl:text-2xl lg:text-xl md:px-10"
