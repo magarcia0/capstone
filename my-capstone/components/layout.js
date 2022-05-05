@@ -36,7 +36,7 @@ export default function Layout({ children, home }) {
                         src={
                           session.user.image
                             ? session.user.image
-                            : default_profile
+                            : "/../static/images/mypic.png" 
                         }
                         alt="Profile Image"
                         height="60"

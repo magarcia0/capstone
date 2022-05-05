@@ -1,11 +1,11 @@
-import Layout, { siteTitle } from "../components/layout";
+import Layout from "../components/layout";
 import { useRouter } from "next/router";
 import { getSession } from "next-auth/react";
 import { useState } from "react";
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = async (context) => {
   
-  const session = await getSession(ctx);
+  const session = await getSession(context);
   const id = session.user.id;
   return {
     props: {
