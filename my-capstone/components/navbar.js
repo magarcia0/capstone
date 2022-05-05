@@ -1,8 +1,9 @@
 import Link from "next/link";
-import { siteTitle } from "../components/layout";
 import { useTheme } from "next-themes";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useState } from "react";
+import logo from "./logo.png"
+import Image from "next/image";
 
 export const LINKS = [{ href: "/", label: "Home" }];
 
@@ -40,11 +41,17 @@ export default function Nav() {
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <Link href="/">
               <a className="text-white  no-underline md:text-2xl text-xl font-bold hover:text-blue-400 px-2">
-                {siteTitle}
+                <Image
+                        className=""
+                        src={ logo }
+                        alt=" "
+                        height="80"
+                        width="280"
+                      />{" "}
               </a>
             </Link>
             <button
-              className="text-white cursor-pointer text-xl leading-none px-3 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              className="text-white cursor-pointer text-xl leading-none px-0 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
@@ -58,7 +65,7 @@ export default function Nav() {
             }
             id="example-navbar-danger"
           >
-            <ul className="flex text-white flex-col lg:flex-row list-none lg:ml-auto font-bold text-lg px-5">
+            <ul className="flex text-white flex-col lg:flex-row list-none lg:ml-auto font-bold text-lg px-52 md:px-96 lg:px-11">
               {LINKS.map(({ href, label }) => (
                 <li key={`${href}${label}`}>
                   <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 0">
@@ -117,7 +124,7 @@ export default function Nav() {
                         className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400"
                         onClick={() => signIn()}
                       >
-                        Sign in
+                        Sign-in
                       </button>
                     );
                   }
@@ -125,7 +132,7 @@ export default function Nav() {
               </li>
               <li>
                 <button
-                  className="ml-3 px-3 mt-2 text-white bg-slate-900  dark:text-yellow-500 dark:bg-yellow-100 border-black font-semibold rounded-md"
+                  className="ml-4 px-3 mt-2 text-white bg-slate-900  dark:text-yellow-500 dark:bg-yellow-100 border-black font-semibold rounded-md"
                   onClick={() => {
                     setTheme(theme === "light" ? "dark" : "light");
                   }}
