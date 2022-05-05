@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import Layout from "../../components/layout";
 import Image from "next/image";
 
-//const exerciseEndpoint = "https://wildcat.plus/api/findexercises";
-const exerciseEndpoint = "http://localhost:3000/api/findexercises";
+const exerciseEndpoint = "https://wildcat.plus/api/findexercises";
+//const exerciseEndpoint = "http://localhost:3000/api/findexercises";
 
 export const getServerSideProps = async (context) => {
   const { id } = context.query;

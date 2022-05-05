@@ -1,8 +1,7 @@
-import Layout, { siteTitle } from "../components/layout";
+import Layout from "../components/layout";
 import { PrismaClient } from "@prisma/client";
 import { useSession, getSession } from "next-auth/react";
 import { useRouter } from "next/router";
-//import { prisma } from './pclient'
 
 const prisma = new PrismaClient();
 

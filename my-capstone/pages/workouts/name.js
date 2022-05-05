@@ -45,7 +45,7 @@ export default function WorkoutName({ id }) {
 
   return (
     <Layout>
-      <title>New Post++</title>
+      <title>New Post+</title>
       <br />
       <div className="min-h-screen p-10 mx-auto md:w-3/6 lg:w-3/6">
         <div className="space-y-10 sm:space-y-0 md:space-y-0 md:grid">
