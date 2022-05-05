@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 
 const prisma = new PrismaClient();
 
-export const getServerSideProps = async (ctx) => {
-  const session = await getSession(ctx);
+export const getServerSideProps = async (context) => {
+  const session = await getSession(context);
   const id = session.user.id;
   //console.log(id);
   const allPosts = await prisma.post.findMany({

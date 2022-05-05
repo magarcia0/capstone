@@ -3,9 +3,9 @@ import { getSession } from "next-auth/react";
 import { useState } from "react";
 import Layout from "../../components/layout"
 
-export const getServerSideProps = async (ctx) => {
+export const getServerSideProps = async (context) => {
   
-  const session = await getSession(ctx);
+  const session = await getSession(context);
   const id = session.user.id;
   return {
     props: {

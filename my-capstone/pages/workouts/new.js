@@ -3,8 +3,10 @@ import Layout from "../../components/layout"
 import Products from "../../components/products"
 import { useRouter } from "next/router";
 
-const defaultEndpoint = "https://wildcat.plus/api/data";
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////  HERE
 //const defaultEndpoint = "http://localhost:3000/api/data";
+const defaultEndpoint = "https://wildcat.plus/api/data";
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////  HERE
 
 const Frontend = () => {
     const [allProducts, setAllProducts] = useState([]);
