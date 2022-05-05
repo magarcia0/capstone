@@ -61,7 +61,7 @@ export default function Nav() {
             <ul className="flex text-white flex-col lg:flex-row list-none lg:ml-auto font-bold text-lg px-5">
               {LINKS.map(({ href, label }) => (
                 <li key={`${href}${label}`}>
-                        <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 0">
+                  <div className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400 0">
                     <Link href={href}>{label}</Link>
                   </div>
                 </li>
@@ -106,7 +106,7 @@ export default function Nav() {
                     return (
                       <button
                         className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400"
-                        onClick={() => signOut({callbackUrl:'/'})}
+                        onClick={() => signOut({ callbackUrl: "/" })}
                       >
                         Sign out
                       </button>
@@ -114,7 +114,6 @@ export default function Nav() {
                   } else {
                     return (
                       <button
-
                         className="no-underline px-4 py-2 font-bold text-white hover:text-blue-400"
                         onClick={() => signIn()}
                       >

@@ -9,12 +9,14 @@ export const getServerSideProps = async (context) => {
   const session = await getSession(context);
   const id = session.user.id;
 
-  const allWorkouts = await prisma.workouts.findMany({
+  let allWorkouts = await prisma.workouts.findMany({
     where: {
       authorId: id,
     },
   });
 
+  allWorkouts = JSON.stringify(allWorkouts);
+  allWorkouts = JSON.parse(allWorkouts);
   return {
     props: {
       id: id,

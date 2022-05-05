@@ -47,20 +47,18 @@ export default function WorkoutName({ id }) {
     <Layout>
       <title>New Post++</title>
       <br />
-      <div className="min-h-screen p-10">
-        <div className="space-y-10 sm:space-y-0 md:space-y-0 md:grid ">
-          <div className=" dark:text-white md:flex md:flex-col md:justify-center"></div>
-          <div className="">
-            <div className="w-full rounded-lg shadow-2xl bg-slate-600 ">
-              <h2 className="mb-14 text-white text-2xl md:text-4xl lg:text-6xl font-bold pt-14">
+      <div className="min-h-screen p-10 mx-auto md:w-3/6 lg:w-3/6">
+        <div className="space-y-10 sm:space-y-0 md:space-y-0 md:grid">
+            <div className="w-full rounded-lg shadow-2xl bg-slate-600">
+              <h2 className="mb-14 text-white text-2xl md:text-4xl lg:text-5xl font-bold pt-14">
                 Builder
               </h2>
-              <form onSubmit={SaveWorkoutName}>
-                <label htmlFor="name" className="pr-2 text-white text-3xl">
+              <form onSubmit={SaveWorkoutName} className="">
+                <label htmlFor="name" className="pl-2 pr-2 xl:text-4xl text-2xl text-white md:text-3xl lg:text-4xl">
                   Enter Workout Name
                 </label>
                 <input
-                  className="bg-white lg:mb-5 lg:mt-24 dark:bg-slate-800"
+                  className="bg-white lg:mb-5 pl-2 mr-2 lg:mt-16 dark:bg-slate-800"
                   id="name"
                   name="name"
                   type="name"
@@ -72,20 +70,19 @@ export default function WorkoutName({ id }) {
                 <div className="grid pt-16 grid-cols-2">
                   <button
                     onClick={routeWorkouts}
-                    className="m-auto flex mb-4 items-center justify-center border border-transparent text-base font-medium rounded-md text-gray-100 bg-red-800 hover:bg-blue-400 md:py-4 md:text-lg md:px-10"
+                    className="m-auto flex mb-4 items-center justify-center border border-transparent text-base font-medium rounded-md text-white bg-red-800 hover:bg-blue-400 md:py-4 md:text-lg md:px-10"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
-                    className="m-auto mb-4 flex items-center justify-center border border-transparent text-base font-medium rounded-md text-gray-100 bg-red-800 hover:bg-blue-400 md:py-4 md:text-lg md:px-10"
+                    className="m-auto mb-4 flex items-center justify-center border border-transparent text-base font-medium rounded-md text-white bg-red-800 hover:bg-blue-400 md:py-4 md:text-lg md:px-10"
                   >
                     Next
                   </button>
                 </div>
               </form>
             </div>
-          </div>
         </div>
       </div>
     </Layout>

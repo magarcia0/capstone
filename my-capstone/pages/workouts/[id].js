@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import Layout from "../../components/layout";
 import Image from "next/image";
 
-const exerciseEndpoint = "https://wildcat.plus/api/findexercises";
+//const exerciseEndpoint = "https://wildcat.plus/api/findexercises";
+const exerciseEndpoint = "http://localhost:3000/api/findexercises";
 
 export const getServerSideProps = async (context) => {
   const { id } = context.query;
@@ -39,14 +40,17 @@ const Details = ({ id }) => {
       {" "}
       <Layout>
         <br />
-        <ul className="grid-cols-3 gap-4 flex flex-wrap list-none justify-center ">
+        <div className="h-screen">
+        <ul className="grid-cols-3 gap-4 flex flex-wrap list-none justify-center">
           {workouts?.map((product) => {
             return (
               <div key={product.id} className="shrink">
                 <li className="card">
                   <div className="dark:bg-slate-600 px-4 py-6 mb-4 min-w-fit max-w-xs rounded-lg overflow-hidden shadow-xl">
                     <Image
-                      className="w-full opacity-90 rounded-md" width={300} height={300}
+                      className="w-full opacity-90 rounded-md"
+                      width={300}
+                      height={300}
                       src={product.gifurl}
                       alt="exercise image"
                     />
@@ -82,6 +86,7 @@ const Details = ({ id }) => {
             );
           })}
         </ul>
+        </div>
       </Layout>
     </>
   );

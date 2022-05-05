@@ -73,11 +73,11 @@ export default function Journal({ posts }) {
             New Entry
           </button>
           <br />
-          <table className="rounded-t-lg table-auto m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto">
-            <tr className="border-b-2 bg-slate-700 text-white border-gray-300">
+          <table className="rounded-t-lg flex flex-col  m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto">
+            <tr className="border-b-2 text-sm md:text-lg lg:text-2xl bg-slate-700 text-white border-gray-300">
               <th className="px-2 py-3">Title</th>
               <th className="px-4 py-3">Workout</th>
-              <th className="px-4 py-3">Hours Spent</th>
+              <th className="px-4 py-3">Time</th>
               <th className="px-4 py-3">Date</th>
               <th className="px-4 py-3"></th>
             </tr>
@@ -86,7 +86,7 @@ export default function Journal({ posts }) {
               <>
                 <tr
                   key={toString(p.id)}
-                  className="text-white bg-gray-700 border-gray-600 border-b "
+                  className="text-white text-sm md:text-lg lg:text-2xl bg-gray-700 border-gray-600 border-b "
                 >
                   <td className="">{p.title}</td>
                   <td className="px-4 py-3">{p.workout} </td>
@@ -96,7 +96,7 @@ export default function Journal({ posts }) {
                   <td className="px-4 py-3">{p.workoutDate}</td>
                   <button
                     onClick={() => deletePost(p.id)}
-                    className="w-5/6 mx-auto mt-2 flex justify-center border border-transparent text-xs md:text-md lg:text-lg font-medium rounded-sm md:rounded-md lg:rounded-lg text-white bg-red-700 hover:bg-blue-600"
+                    className="w-2/6 text-xs mx-auto mt-2 mb-4 flex justify-center border border-transparent sm:text-sm md:text-lg lg:text-xl font-medium rounded-sm md:rounded-md lg:rounded-lg text-white bg-red-700 hover:bg-blue-600"
                   >
                     Delete
                   </button>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { getSession } from "next-auth/react";
 import Image from "next/image";
 
-const defaultEndpoint = "https://wildcat.plus/api/workoutid";
+//const defaultEndpoint = "https://wildcat.plus/api/workoutid";
+const defaultEndpoint = "http://localhost:3000/api/workoutid";
 
 const Products = (props) => {
   const [allWorkouts, setAllWorkouts] = useState();
@@ -14,6 +14,15 @@ const Products = (props) => {
     (async () => {
       const response = await fetch(defaultEndpoint);
       const content = await response.json();
+
+      content?.map((wo) => {
+        var temp = 0;
+        if (wo.id > temp) {
+          temp = wo.id;
+          setTargetId(temp);
+        }
+      });
+
       setAllWorkouts(content);
     })();
   }, []);
@@ -29,7 +38,7 @@ const Products = (props) => {
   const SaveProduct = async (bodyPart, equipment, gifUrl, name, target) => {
     var workoutId = 0;
     setButton(!enabled);
-    try {
+
       allWorkouts?.map((wo) => {
         var temp = 0;
         if (wo.id > temp) {
@@ -38,9 +47,6 @@ const Products = (props) => {
         }
       });
       workoutId = target_id;
-    } catch (error) {
-      console.log(error);
-    }
     console.log(target_id);
     const body = { bodyPart, equipment, gifUrl, name, target, workoutId };
     await fetch("/api/exercise", {
@@ -69,9 +75,8 @@ const Products = (props) => {
         {props.products?.map((product) => {
           return (
             <div key={product.id} className="shrink">
-              <li key={product.id} className="card">
+              <li  className="card">
                 <div
-                  key={product.id}
                   className="dark:bg-slate-600 px-4 py-6 mb-4 min-w-fit max-w-xs rounded-lg overflow-hidden shadow-xl"
                 >
                   <Image
@@ -96,7 +101,7 @@ const Products = (props) => {
                       Equipment needed: {product.equipment}
                     </p>
                   </div>
-                    <button key={product.id}
+                    <button
                       onClick={() =>
                         SaveProduct(
                           product.bodyPart,

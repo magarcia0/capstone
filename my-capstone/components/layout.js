@@ -62,7 +62,7 @@ export default function Layout({ children, home }) {
         {!home && (
           <div className="pt-8 text-left">
             <Link href="/">
-              <a>← Back to Home</a>
+              <a><span className="text-3xl"> ← </span>Back to Home</a>
             </Link>
           </div>
         )}
