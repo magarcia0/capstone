@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
-//const defaultEndpoint = "https://wildcat.plus/api/workoutid";
-const defaultEndpoint = "http://localhost:3000/api/workoutid";
+const defaultEndpoint = "https://wildcat.plus/api/workoutid";
+//const defaultEndpoint = "http://localhost:3000/api/workoutid";
 
 const Products = (props) => {
   const [allWorkouts, setAllWorkouts] = useState();
