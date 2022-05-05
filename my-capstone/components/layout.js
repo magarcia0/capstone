@@ -4,6 +4,7 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
+import myPic from "./mypic.png"
 
 export const siteTitle = "WildCat+";
 
@@ -33,15 +34,12 @@ export default function Layout({ children, home }) {
                       {" "}
                       <Image
                         className="ml-auto mr-auto rounded-[30px]"
-                        src={
-                          session.user.image
-                            ? session.user.image
-                            : "/../static/images/mypic.png" 
-                        }
-                        alt="Profile Image"
+                        src={ session.user.image ? session.user.image : myPic }
+                        alt=" "
                         height="60"
                         width="60"
                       />{" "}
+
                     </div>
                   </div>
                 </div>
