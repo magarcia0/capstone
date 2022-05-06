@@ -2,7 +2,7 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useState } from "react";
-import logo from "./logo.png"
+import logo from "../public/logo.png";
 import Image from "next/image";
 
 export const LINKS = [{ href: "/", label: "Home" }];
@@ -29,6 +29,7 @@ export const menu = (
     />
   </svg>
 );
+
 export default function Nav() {
   const { theme, setTheme } = useTheme();
   const { data: session, status } = useSession();
@@ -42,12 +43,12 @@ export default function Nav() {
             <Link href="/">
               <a className="text-white  no-underline md:text-2xl text-xl font-bold hover:text-blue-400 px-2">
                 <Image
-                        className=""
-                        src={ logo }
-                        alt=" "
-                        height="80"
-                        width="280"
-                      />{" "}
+                  className=""
+                  src={logo}
+                  alt=" "
+                  height="80"
+                  width="280"
+                />{" "}
               </a>
             </Link>
             <button
@@ -132,7 +133,7 @@ export default function Nav() {
               </li>
               <li>
                 <button
-                  className="ml-4 px-3 mt-2 text-white bg-slate-900  dark:text-yellow-500 dark:bg-yellow-100 border-black font-semibold rounded-md"
+                  className="ml-4 px-2 mt-2 text-white bg-slate-900  dark:text-yellow-500 dark:bg-yellow-100 border-black font-semibold rounded-md"
                   onClick={() => {
                     setTheme(theme === "light" ? "dark" : "light");
                   }}

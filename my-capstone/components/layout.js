@@ -4,7 +4,8 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import myPic from "./mypic.png"
+import myPic from "./mypic.png";
+import { motion } from "framer-motion";
 
 export const siteTitle = "WildCat+";
 
@@ -18,6 +19,19 @@ export default function Layout({ children, home }) {
       {(() => {
         if (status === "authenticated") {
           return (
+            <motion.div initial="hidden" animate="visible" variants={ {
+              hidden: {
+                scale: 0.8,
+                opacity: 0,
+              },
+              visible: {
+                scale: 1,
+                opacity: 1,
+                transition: {
+                  delay:.3,
+                }
+              },
+            }}>
             <div className="p-10 pb-8 w-9/12 mx-auto border border-transparent">
               <div className="md:space-y-0 md:grid">
                 <div className="dark:text-white md:flex md:flex-col md:justify-center xl:justify-center lg:justify-center"></div>
@@ -34,17 +48,17 @@ export default function Layout({ children, home }) {
                       {" "}
                       <Image
                         className="ml-auto mr-auto rounded-[30px]"
-                        src={ session.user.image ? session.user.image : myPic }
+                        src={session.user.image ? session.user.image : myPic}
                         alt=" "
                         height="60"
                         width="60"
                       />{" "}
-
                     </div>
                   </div>
                 </div>
               </div>
             </div>
+            </motion.div>
           );
         }
       })()}
@@ -60,7 +74,9 @@ export default function Layout({ children, home }) {
         {!home && (
           <div className="pt-8 text-left">
             <Link href="/">
-              <a><span className="text-3xl"> ← </span>Back to Home</a>
+              <a>
+                <span className="text-3xl"> ← </span>Back to Home
+              </a>
             </Link>
           </div>
         )}
