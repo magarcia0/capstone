@@ -21,7 +21,7 @@ const Products = (props) => {
         />
         <br />
       </form>
-      <ul className="grid-cols-3 gap-4 flex flex-wrap list-none justify-center ">
+      <ul className="grid-cols-3 min-h-screen gap-4 flex flex-wrap list-none justify-center ">
         {props.products?.map((product) => {
           return (
             <div key={ product.id } className="shrink">
