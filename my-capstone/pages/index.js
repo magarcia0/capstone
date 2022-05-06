@@ -90,15 +90,15 @@ export default function Home() {
         <div className="min-h-screen p-10">
           <div className="space-y-10 md:space-y-0 md:grid ">
             <div className="w-full dark:bg-gradient-to-t dark:from-red-800 dark:to-slate-800 h-screen rounded-lg shadow-2xl bg-slate-700">
-              <h2 className="text-white pt-16 text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
+              <h2 className="text-white pt-16 text-2xl md:text-4xl px-4 lg:text-6xl font-bold mb-2">
                 Some stuff about the web app:
               </h2>
-              <ol className="space-y-3 list-decimal list-inside text-center text-lg text-white md:text-xl">
-                <li className=" leading-loose font-bold">Free to use!</li>
-                <li className="leading-loose font-bold">
+              <ol className="space-y-8 lg:space-y-24 text-2xl md:space-y-20 lg:pt-22 px-8 lg:px-16 pt-12 md:pt-20 list-decimal list-inside text-center text-white ">
+                <li className="lg:text-5xl  md:text-4xl leading-loose font-extralight">Free to use!</li>
+                <li className="leading-loose lg:text-5xl md:text-4xl font-extralight">
                   Build customized workouts for your gym sessions!
                 </li>
-                <li className="leading-loose font-bold">
+                <li className="leading-loose lg:text-5xl md:text-4xl font-extralight">
                   Journal lets you track your fitness journey!
                 </li>
               </ol>
