@@ -54,9 +54,9 @@ export default function Journal({ posts }) {
   }
   return (
     <>
-      <div className="h-screen dark:bg-slate-900">
         <Layout>
           <title>Journal+</title>
+        <div className="min-h-screen p-10 dark:bg-slate-900">
           <div className="flex justify-center">
           <div className="rounded-md w-5/6 bg-gradient-to-b from-slate-700 to-slate-800">
             <h2 className="text-white text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
@@ -103,8 +103,8 @@ export default function Journal({ posts }) {
               </>
             ))}
           </table>
+          </div>
         </Layout>
-      </div>
     </>
   );
 }
