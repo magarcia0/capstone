@@ -53,7 +53,7 @@ export default function Workouts({ id, workouts }) {
     <Layout>
       <title>Workouts+</title>
       <br />
-      <div className="min-h-screen p-10">
+      <div className="min-h-screen p-4">
       <div className="flex justify-center">
           <div className="rounded-md w-5/6 bg-gradient-to-b from-slate-700 to-slate-800">
             <h2 className="text-white text-2xl md:text-4xl lg:text-6xl font-bold mb-4">
@@ -70,7 +70,7 @@ export default function Workouts({ id, workouts }) {
         </button>
         <br />
         <br />
-        <table className="rounded-t-lg m-5 w-5/6 dark:bg-gray-800 dark:text-white mx-auto">
+        <table className="rounded-t-lg m-0 w-5/6 dark:bg-gray-800 dark:text-white mx-auto">
           <tr className="border-b-2 bg-slate-700 text-white border-gray-300">
             <th className="px-2 py-3">Title</th>
             <th className="px-4 py-3"> </th>

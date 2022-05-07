@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     const { workoutId }  = req.body;
-    //console.log(workoutId);
+  //  console.log(workoutId);
 
     try {
       const results = await prisma.exercises.findMany({
